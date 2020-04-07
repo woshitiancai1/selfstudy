@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02区分插值表达式和v-text的区别</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        /* 属性选择器,用v-cloak属性来解决内容闪烁的问题 */
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--使用插值表达式存和v-text指令的区别(插值表达式使用较多)-->
+        <!-- 1.使用插值表达式存在内容闪烁的问题，但是v-text指令不存在 -->
+        <!-- 2.在插值表达式中可以使用v-cloak解决闪烁问题 -->
+        <!-- 3.插值表达式只会插入内容，并不会清楚其余的内容，v-text会把元素中之前的内容都清空 -->
+        <h3 v-cloak>{{msg}}</h3>
+        <!--  -->
+        <h3 v-text="msg"></h3>
+        <!-- 用v-html指令来把数据渲染成一个html标签 -->
+        <div v-html="msg2"></div>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            msg:'外国人80%都不会亚洲蹲',
+            msg2:'<h6>这是一个小标题</h6>'
+        }
+    })
+</script>
+</html>
