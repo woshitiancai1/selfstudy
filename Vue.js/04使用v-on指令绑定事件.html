@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on指令绑定事件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Vue中提供了v-on:来为元素绑定事件 -->
+        <!-- 绑定的事件处理函数必须定义到VM实例的methods属性中 -->
+        <!-- <input type="button" value="点击按钮" v-on:click="add(1,2,3)"/> -->
+        <input type="button" value="点击按钮" @:click="add()"/>
+        <p>当前的值为:{{weight}}</p>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            weight:10
+        },
+        methods:{//这个methods属性可以定义好多事件处理函数
+            // add(...args){ES6中  对象中定义函数的简写形式
+            //              把接收到的所有参数都放到args数组中
+                
+            // }
+            //在methods中，如果想要访问打他中的值只能通过this.***访问
+            add(){
+                this.weight += 3;
+                //当data中的数据变化之后，会被VM调度监听到，自动把最新的页面应用到页面上
+            }
+        }
+    })
+</script>
+</html>
