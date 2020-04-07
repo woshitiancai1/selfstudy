@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model指令实现数据的双向绑定</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用v-model实现当输入框的value值发生变化时，h3标签的内容也随之发生动态的变化 -->
+        <!-- v-bind:指令只能实现数据的单向绑定，从data自动同步到view上 -->
+        <h3>{{msg}}</h3>
+        <!-- <input type="text" value=""/> -->
+        <!-- 在Vue中，只有v-model指令实现了数据的双向绑定，其他指令都是单向的 -->
+        <!-- v-model 只有应用在表单元素中 -->
+        <!-- input type="text radio checkbox textarea select" -->
+        <input type="text" v-model="msg"/>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            msg:'xuemingxing'
+        },
+        methods:{
+            
+        }
+    })
+</script>
+</html>

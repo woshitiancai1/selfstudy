@@ -1,0 +1,6 @@
+第一天上午：
+    使用Vue分为三步：引入包，定义将要被vue控制的容器，创建一个vm实例
+    el指定要控制的区域，data指定要渲染的数据，methods要触发的事件处理函数
+    v-text v-on: v-moael v-html: v-bind:
+    data中的数据想要在methods中访问时，使用this.***访问即可
+    data可以存放共享的数据，当前实例中的任何地方都可以用this.***访问
