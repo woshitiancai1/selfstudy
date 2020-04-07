@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跑马灯</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="浪起来" v-on:click="lang"/>
+        <input type="button" value="停止" v-on:click="stop"/>
+        <h3>{{msg}}</h3>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {//在一个VM实例的data中挂载的数据，通过this.***方法可以在methods中访问到
+            msg: '我是天才，薛明星，哈哈哈',
+            timer:null,
+        },
+        methods: {
+            lang(){//开始跑马灯效果
+                //开启定时器时要清除上一个定时器
+                if(this.timer != null){//表示已经有定时器在执行,直接退出
+                    return;
+                }
+                //思路：
+                this.timer = setInterval(()=> {
+                    //1.先截取第一个字符，然后把这个字符放到结尾处
+                    const header = (this.msg).substring(0,1);
+                    //substring("起始位置的索引值","结束位置的索引值")，不包含结尾
+                    const body = (this.msg).substring(1);//不传第二个参数代表截取到末尾
+                    this.msg = body + header;
+                }, 300)
+            },
+            stop(){//清除定时器
+                clearInterval(this.timer);
+                //每当清除定时器之后，为了保证下次能正常开启定时器，需要把timer重置为null
+                this.timer = null;
+            }
+        }
+    })
+</script>
+
+</html>
