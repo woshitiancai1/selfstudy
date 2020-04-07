@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在Vue中绑定属性值</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="按钮" v-bind:title="btnTitle" v-bind:id="customIdName"/>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            customIdName:'这是我自定义的id值',
+            btnTitle:'这是按钮的自定义title值',
+        }
+    })
+</script>
+</html>
