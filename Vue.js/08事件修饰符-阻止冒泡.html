@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符-阻止冒泡</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #inner{
+            background-color: pink;
+            height: 150px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="inner" v-on:click="innerClick">
+            <input type="button" value="按钮" v-on:click.stop="btnClick"/>
+        </div>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            innerClick(){//内部div的点击事件
+                console.log("1");
+            },
+            btnClick(){//按钮的点击事件
+                console.log("2");
+            }
+        }
+    })
+</script>
+</html>
