@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for循环对象数组</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- 此时得到的item是一个对象，我们要得到它的属性值 -->
+            <li v-for="(item,index) in list">{{item.id}}...{{item.name}}.....{{index}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            list:[
+                {id:1,name:'嬴政1'},
+                {id:2,name:'嬴政2'},
+                {id:3,name:'嬴政3'},
+                {id:4,name:'嬴政4'},
+            ]
+        },
+        methods:{
+            
+        }
+    })
+</script>
+</html>

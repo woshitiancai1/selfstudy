@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for循环对象中的属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- val key键值对的形式得到属性名和属性值 值在前名在后 -->
+            <li v-for="(val,key,index) in person">
+                {{key}}...{{val}}...{{index}}
+            </li>
+        </ul>
+    </div>
+    <!-- item in 数值 ：item从1开始 ， -->
+    <p v-for="(item,index) in 9">{{item}}.....{{index}}</p>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            person:{
+                id:1,
+                name:"xue",
+                age:20,
+                gender:"man",
+            }
+        },
+        methods:{
+            
+        }
+    })
+</script>
+</html>

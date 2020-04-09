@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演示key属性 </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <label>
+                id:<input type="text" v-model="id"/>
+            </label>
+            <label>
+                name:<input type="text" v-model="name"/>
+            </label>
+            <input type="button" value="添加" v-on:click="add"/>
+        </div>
+        <ul>
+            <!-- 使用到v-for，一定要指定一个唯一的:key属性(只接受字符串和数字，不接受对象) -->
+            <li v-for="(item,index) in list" v-bind:key="item.id">
+                <input type="checkbox"/>
+                id:{{item.id}}...name:{{item.name}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            id:"",
+            name:"",
+            list:[
+                {id:1,name:'嬴政1'},
+                {id:2,name:'嬴政2'},
+                {id:3,name:'嬴政3'},
+                {id:4,name:'嬴政4'},
+            ]
+        },
+        methods:{
+            add(){//点击添加新名称
+                //先怼出一个对象，然后把这个对象push到list数组中，成为他的一个对象
+                var info = {id:this.id,name:this.name};
+                //push是在数组的末尾进行添加
+                // this.list.push(info);
+                //unshift是在数组的头部进行添加
+                this.list.unshift(info); 
+            }
+        }
+    })
+</script>
+</html>

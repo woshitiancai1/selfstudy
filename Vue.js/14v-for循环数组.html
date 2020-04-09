@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for循环数组</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 把data中的list当做ul li渲染到页面上 -->
+        <ul>
+            <li v-for="(item,index) in list">{{index}}......{{item}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            list:['嬴政','李斯','吕不韦','赵姬','赵高']
+        },
+        methods:{
+            
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if和v-show</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{flag}}</h1>
+        <!-- 点击按钮去切换h3和h6的显示和隐藏状态 -->
+        <input type="button" value='切换' v-on:click="toggle"/>
+        <h3 v-if="flag">哈哈哈</h3>
+        <h6 v-show="flag">123456</h6>
+        <!-- v-if和v-show 根据指定的标识符切换元素的显示和隐藏状态 -->
+
+        <!-- v-if:是实时的创建或移除元素，从而达到元素的隐藏与显示 -->
+        <!-- v-show:是通过为元素添加或移出display属性来实现隐藏与显示 -->
+
+        <!-- 如果元素需要经常的切换显示和隐藏的状态，使用v-show -->
+        <!-- 如果元素被创建出来之后不会进行状态的切换，用v-if -->
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            flag:true,
+        },
+        methods:{
+            toggle(){
+                //true和false的随意切换
+                this.flag = !this.flag;
+            }
+        }
+    })
+</script>
+</html>

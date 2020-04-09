@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style> 
+        .red{
+            color:red;
+        }
+        /* 字体倾斜 */
+        .italic{
+            font-style: italic;
+        }
+        /* 字体变瘦 */
+        .thin{
+            font-weight: 200;
+        }
+        .small{
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 在Vue中，用v-bind:class="[''.'']" 来为元素绑定数组的类样式 用的少-->
+        <h1 v-bind:class="['red','small']">这是一个大大的H1标题</h1>
+
+        <hr/>
+        <!-- 在Vue中，data中的数据在被控制的区域直接写就可以 -->
+        <!-- 在数组中使用三元表达式加类名 用的多 -->
+        <h1 v-bind:class="['red',isthin?'thin':'']">这是一个瘦瘦的H1标题</h1>
+        <input type="button" value="变胖和变瘦" v-on:click="change"/>
+
+        <hr/>
+        <!-- 在数组中使用对象来简化三元表达式 用的多-->
+        <h1 v-bind:class="['red',{thin:isthin}]">这是一个瘦瘦的H1标题</h1>
+        <input type="button" value="变胖和变瘦" v-on:click="change"/>
+
+        <hr/>
+        <!-- 传递对象作为类样式 用的少-->
+        <h1 v-bind:class="red:true,italic:true,small:true,thin:isthin">这是一个瘦瘦的H1标题</h1>
+        <input type="button" value="变胖和变瘦" v-on:click="change"/>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            isthin:true,
+        },
+        methods:{
+            change(){
+                if(this.isthin == true){
+                    this.isthin = false;
+                }
+                else{
+                    this.isthin = true;
+                }
+            }
+        }
+    })
+</script>
+</html>

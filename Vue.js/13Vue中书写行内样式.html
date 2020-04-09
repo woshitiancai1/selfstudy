@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue中书写行内样式</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 直接在元素上通过style的形式，书写样式对象 -->
+        <h1 style="color:red;font-size:14px">这是一个大标题</h1>
+        <h1 v-bind:style="{color:'red','font-size':'20px'}">这是一个大标题</h1>
+
+         <!-- 直接从data中找到关于样式的对象 -->
+        <h1 v-bind:style="[styleObj,styleObj2]">这是一个大标题</h1>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            styleObj:{color:'red','font-size':'20px'},
+            styleObj2:{'font-style':'italic'}
+        },
+        methods:{
+            
+        }
+    })
+</script>
+</html>
