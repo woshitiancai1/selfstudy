@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌列表案例</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <label>id</label>
+            <input type="text" v-model="id"/>
+            <label>name</label>
+            <input type="text" v-model="name"/>
+            <input type="button" value="添加" v-on:click="add"/>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>id........</th>
+                    <th>name........</th>
+                    <th>操作........</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in list" v-bind:key="item.id">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>
+                        <a href="#" v-on:click.prevent="del(item.id)">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            id:"",
+            name:"",
+            list:[
+                {id:1,name:'benchi'},
+                {id:2,name:'baoma'},
+                {id:3,name:'aodi'}
+            ]
+        },
+        methods:{
+            add(){
+                var info = {id:this.id,name:this.name}
+                this.list.push(info);
+                //添加完成后将id值和name值均置为空
+                this.id = "";
+                this.name = "";
+            },
+            
+            //用每种商品的唯一的id值来执行删除操作
+            //1.根据拿到的id值来获取对应的商品索引
+            //2.根据拿到的索引值，去数组中调用splice方法删除对应的元素
+            del(id){
+                // for(let i = 0;i < this.list.length;i++){
+                //     if(this.list[i].id == id){
+                //         this.list.splice(i,1);
+                //         break;
+                //     }
+                // }
+
+                //数组的findindex方法：根据你传进来的值去数组中寻找对应的id值
+                //这里的item就是list数组中的每一个对象的名称，
+                this.list.findindex(function(item){
+                    //如果对象的id值和我们传进来的id值相同，那么这个对象就是要删除的元素
+                    if(item.id == id){
+                        return true;
+                    }
+                })
+            }
+        }
+    })
+</script>
+</html>
