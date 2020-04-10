@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局过滤器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 引入moment -->
+    <script src="./node_modules/moment/moment.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <label>id</label>
+            <input type="text" v-model="id"/>
+            <label>name</label>
+            <input type="text" v-model="name"/>
+            <input type="button" value="添加" v-on:click="add"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            按照商品品牌检索
+            <input type="text" placeholder="请输入关键词" v-on:change="searchByName" v-model="keywords"/>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>id........</th>
+                    <th>name........</th>
+                    <th>操作........</th>
+                    <th>时间........</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in searchByName()" v-bind:key="item.id">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>
+                        <a href="#" v-on:click.prevent="del(item.id)">删除</a>
+                    </td>
+                    <!-- 在调用过滤器的时候来需要 | 调用，叫做管道符 -->
+                    <!-- addStr('===') 括号中的内容是在为过滤器传参 -->
+                    <td>{{item.time | formatData | addStr('===',';')}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    //自定义一个全局过滤器
+    //过滤器只能使用在插值表达式中或者v-bind中，其他情况均不可以
+    //Vue.filter("过滤器将来被调用时候的名称","过滤器处理函数")
+    //过滤器的处理函数中，第一个形参永远是管道符前面的值
+    Vue.filter("formatData",function(data){//data永远是管道前面的值,也就是item.time
+        //把data转化为想要输出的事件格式
+        return moment(data).format('YYYY-MM-DD HH:mm:ss');
+    }) 
+    //可以连续的使用管道符调用多个过滤器，但最终以最后一个过滤器输出的结果为准
+    Vue.filter('addStr',function(data,str,str1){//str接收调用这个过滤器的时候传的参数
+        return data+str+str1;
+    })
+
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            id:"",
+            name:"",
+            //根据名称检索时候的关键字 
+            keywords:"",
+            list:[
+                {id:1,name:'benchi',time:new Date()},
+                {id:2,name:'baoma',time:new Date()},
+                {id:3,name:'aodi',time:new Date()},
+                {id:4,name:'qianlima',time:new Date()}
+            ]
+        },
+        methods:{
+            add(){
+                var info = {id:this.id,name:this.name}
+                this.list.push(info);
+                //添加完成后将id值和name值均置为空
+                this.id = "";
+                this.name = "";
+            },
+            
+            //用每种商品的唯一的id值来执行删除操作
+            //1.根据拿到的id值来获取对应的商品索引
+            //2.根据拿到的索引值，去数组中调用splice方法删除对应的元素
+            del(id){
+                // for(let i = 0;i < this.list.length;i++){
+                //     if(this.list[i].id == id){
+                //         this.list.splice(i,1);
+                //         break;
+                //     }
+                // }
+
+                //数组的findindex方法：根据你传进来的值去数组中寻找对应的id值
+                //这里的item就是list数组中的每一个对象的名称，
+                const index = this.list.findIndex(function(item){
+                    //如果对象的id值和我们传进来的id值相同，那么这个对象就是要删除的元素
+                    if(item.id == id){
+                        return true;
+                    }
+                })
+                this.list.splice(index,1);
+            },
+            //根据搜索的关键字检索品牌  
+            //change事件离开焦点时才会触发
+            searchByName(){
+                // let result = [];
+                // //循环list中的每一项，拿到这一项之后，判断名称中是否包含关键字
+                // //如果包含，则把这一项添加到result中
+                // for(let i=0;i<this.list.length;i++){
+                //     // if(this.list[i].name.indexOf(this.keywords) != -1){
+                //     //     result.push(this.list[i]);
+                //     // }
+                //     if(this.list[i].name.includes(this.keywords)){
+                //         result.push(this.list[i]);
+                //     }
+                // }
+                // return result;
+
+                //优化品牌列表检索的功能
+                //数组的filter方法作用是循环指定的数组，并把满足回调函数中指定条件的
+                //项返回，从而得到一个新数组
+                return this.list.filter((item)=>{
+                    return item.name.includes(this.keywords)
+                })   
+            }
+        }
+    })
+</script>
+</html>
