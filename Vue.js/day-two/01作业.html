@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01作业</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        /* 未被选中的样式 */
+        .normal{
+            color:blue;
+        }
+        /* 被选中的样式 */
+        .active{
+            color:red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in list"::key="item.id" 
+            v-bind:class="['normal',{active:index == selectedIndex?true:false}]"
+            v-on:click="change(index)">
+                {{item.id}}......{{item.name}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            //设置默认选中项的索引
+            selectedIndex:0,
+            list:[
+                {id:1,name:'zhangsan'},
+                {id:2,name:'lisi'},
+                {id:3,name:'kenan'},
+                {id:4,name:'wangwu'}
+            ]
+        },
+        methods:{
+            change(changeIndex){
+                this.selectedIndex = changeIndex;
+            }
+        }
+    })
+</script>
+</html>

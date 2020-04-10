@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局过滤器的基本使用</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 把 天才 这两个字，在渲染的时候替换为 笨蛋  不修改msg -->
+        <!-- 使用vue中的过滤器，并不会修改原数据，只是在展示的时候，做了一层包装 -->
+        <h3>{{msg | strFormat('你好')}}</h3>
+    </div>
+</body>
+<script>
+    //定义一个全局过滤器,
+    Vue.filter('strFormat',function(data,str){
+        //data.replace(/天才/g,'笨蛋')为把data中的所有的天才都替换为笨蛋
+        return data.replace(/天才/g,str)//str接收传递进来的替换后的值
+    })
+    
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            msg:'我是天才,你是天才，大家都是天才',
+        },
+        methods:{
+            
+        }
+    })
+</script>
+</html>
