@@ -15,6 +15,10 @@
         <!-- 使用vue中的过滤器，并不会修改原数据，只是在展示的时候，做了一层包装 -->
         <h3>{{msg | strFormat('你好')}}</h3>
     </div>
+    <hr/>
+    <div id="app2">
+        <h3>{{msg | strFormat}}</h3>
+    </div>
 </body>
 <script>
     //定义一个全局过滤器,
@@ -22,7 +26,7 @@
         //data.replace(/天才/g,'笨蛋')为把data中的所有的天才都替换为笨蛋
         return data.replace(/天才/g,str)//str接收传递进来的替换后的值
     })
-    
+
     const vm = new Vue({
         el:"#app",
         data:{
@@ -32,5 +36,25 @@
             
         }
     })
+    const vm2 = new Vue({
+        el:"#app2",
+        data:{
+            msg:'天才呀天才'
+        },
+        methods:{
+
+        },
+        //当前实例私有的过滤器,只对app2控制的区域有效
+        filters:{
+            addStr:function(data){
+                return data+"===";
+            },
+            //如果全局过滤器和私有过滤器重名，则会调用自己的私有过滤器
+            strFormat:function(data){
+                return data+"---";
+            }
+        }
+    })
+    //vm2.$mount("#app2"); 也可以控制id属性为app2的区域
 </script>
 </html>
