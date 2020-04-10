@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己模拟数组的index方法</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //为数组的原型绑定一个属性
+    Array.prototype.info = 'hahaha';
+    var a = [];
+    console.log(a.info)
+
+    //为数组的原型绑定一个方法
+    //此方法的作用是根据给定的回调函数查询到指定项的索引
+    Array.prototype.myFindIndex = function(callback){
+        //这个callback为比较函数，如果返回值为true，就表示找到了对应的那一项
+        for(var i = 0; i < this.length; i++){
+            const result = callback(this[i]);
+            if(result){
+                return i;//直接返回当前的索引i
+            }
+        }
+    }
+    var b = [1,2,3,4];
+    const i = b.myFindIndex(function(item){
+        if(item == 2){
+            return true;
+        }
+    })
+    console.log(i);
+</script>
+</html>
