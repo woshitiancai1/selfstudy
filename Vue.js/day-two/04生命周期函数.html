@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>声明周期函数-创建阶段</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="ChangeMsg" v-on:click="msg='数据被修改了'"/>
+        <h3 id="myh3">{{msg}}</h3>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            msg:'xuemingxing',
+        },
+        methods:{
+            
+        },
+        /*
+            创建阶段的生命周期函数：一个实例一辈子只执行一次
+            运行阶段的生命周期函数：一个实例可以根据data的改变与否，有选择性的执行0次到多次
+            销毁阶段的声明周期函数：一个实例一辈子只执行一次
+
+            在new Vue()的时候，其实是在做如下的步骤：
+            1.先初始化data和methods
+            2.根据数据，在内存中渲染一颗DOM树
+            3.把创建好的DOM树挂载到页面上显示给用户(此时创建阶段结束)
+            4.根据data数据的改变，有选择的重新渲染内存中的DOM树
+            5.把重新渲染的DOM树再次重新挂载到页面上从而保持data和页面的同步
+
+        */
+        //1.创建阶段
+        //这是我们遇到的第一个生命周期函数
+        //当执行到beforeCreate函数时，data上的数据还没有初始化好，
+        //methods中的方法也没有被初始化好
+        beforeCreate() {
+            
+        },
+        //这是我们的第二个生命周期函数
+        //当执行到created函数时，data和methods都已经初始化完毕了
+        //此时可以随意的访问其中的数据和方法了
+        //结论：如果要操作data中的数据或者调用methods中的函数
+        //最早只能在created函数中进行
+        created() {//用的多
+            console.log(this.msg)
+        },
+        //这是创建阶段的第三个生命周期函数，表示即将挂载
+        //在这个函数中，页面上的DOM元素是原始的插值表达式之类的Vue代码
+        beforeMount() {
+            
+        },
+        //这是创建阶段的第四个生命周期函数，表示页面已经完成渲染
+        //同时，Mounted函数的执行表示创建阶段的结束
+        //从此Vue实例从创建阶段进入到运行阶段
+        //操作DOM元素要在mounted函数中
+        mounted() {//用的多
+            const ele = document.getElementById('myh3');
+            console.log(ele.innerHTML);
+        },
+
+        //2.后面的是运行阶段
+        //当执行beforeUpdate函数时，页面内容还是旧的数据，但是此时的data数据是最新的
+        beforeUpdate() {//更新之前
+            const ele = document.getElementById('myh3');
+            console.log(ele.innerHTML);
+        },
+        //拿到的是最新的数据
+        updated() {//更新之后 
+            const ele = document.getElementById('myh3');
+            console.log(ele.innerHTML);
+        },
+
+        //3.销毁阶段
+    })
+</script>
+</html>

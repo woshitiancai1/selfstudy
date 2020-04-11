@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-resource</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 导入vue-resource包 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="Get请求" v-on:click="getInfo"/>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            getInfo(){//get请求数据
+                this.$http.get('http://39.106.32.91:3000/api/getlunbo')
+                .then(function(data){//这时返回的data数据时一个对象
+                    console.log(data.body);
+                })
+            }
+        },
+    })
+</script>
+</html>
