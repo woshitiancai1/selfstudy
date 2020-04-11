@@ -15,6 +15,8 @@
 <body>
     <div id="app">
         <input type="button" value="Get请求" v-on:click="getInfo"/>
+        <input type="button" value="Post请求" v-on:click="postInfo"/>
+        <input type="button" value="JSONP请求" v-on:click="jsonpInfo"/>
     </div>
 </body>
 <script>
@@ -24,11 +26,29 @@
             
         },
         methods:{
-            getInfo(){//get请求数据
-                this.$http.get('http://39.106.32.91:3000/api/getlunbo')
-                .then(function(data){//这时返回的data数据时一个对象
-                    console.log(data.body);
-                })
+            // getInfo(){//get请求数据
+            //     this.$http.get('http://39.106.32.91:3000/api/getlunbo')
+            //     .then(function(data){//这时返回的data数据时一个对象
+            //         console.log(data.body);
+            //     })
+            // }
+            //async 和 await是es7里面的内容
+            async getInfo(){
+                //解构赋值
+                const {body} = await this.$http.get('http://39.106.32.91:3000/api/getlunbo');
+                console.log(body);
+            },
+            //post请求
+            async postInfor(){
+                const {body} = await this.$http.post('http://39.106.32.91:3000/api/post',{
+                    name:'xuemingxing',age:20,gender:'manandwoman'
+                });
+                console.log(body);
+            },
+            //jsonp请求
+            async jsonpInfo(){
+                const {body} = await this.$http.get('http://39.106.32.91:3000/api/getlunbo');
+                console.log(body);
             }
         },
     })
