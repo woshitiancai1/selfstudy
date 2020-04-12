@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animated样式</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 引入animate样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换" v-on:click="flag=!flag"/>
+        <transition enter-active-class="fadeInDown" leave-active-class="fadeOutDown">
+            <h3 v-show="flag" class="animated">薛明星是天才哦</h3>
+        </transition>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            flag:false,
+        },
+        methods:{
+            
+        },
+    })
+</script>
+</html>
