@@ -73,6 +73,11 @@
         },
         methods:{
             async getList(){//获取数据列表的请求
+                
+                /*这里的get请求：指的是这里的前端代码，将数据发送到服务器端
+                ，服务器端有专门的代码用来操作数据库，把数据库中的数据返回到
+                前端。之后，前端用解构赋值{data}来接收返回的数据并进行操作*/
+                
                 const {data} = await this.$http.get('/api/getprodlist')
                 //如果数据请求成功，则把数据结果挂载到data上，供页面去使用
                 if(data.statue == 0){
@@ -88,10 +93,16 @@
                 else{
                     //这种添加是实际项目中的添加，会把数据添加到数据库中，
                     //每次刷新页面都会显示已经添加在数据库中的内容
+
+                    /*这里的post请求：指的是这里的前端代码，将数据发送到服务器端，
+                    并传入一个name对象作为参数。在服务器端有代码和数据库连接
+                    ，并且有专门的代码用来操作数据库，将内容添加到数据库。
+                    之后，前端用解构赋值{data}来接收返回的数据并进行操作*/
+
                     const {data} = await this.$http.post('/api/addproduct',
                     {name:this.name.trim()})
                 }
-                if(status == 0){
+                if(data.status == 0){
                     this.getList();
                 }
             },
