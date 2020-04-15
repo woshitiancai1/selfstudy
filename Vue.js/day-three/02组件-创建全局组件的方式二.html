@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定义全局组件的第二种方式</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <mycom2/>
+    </div>
+</body>
+<script>
+    //定义全局组件的第二种方式
+    Vue.component('mycom2',{
+        //Vue.component的第二个参数，既接收一个组件的构造函数，同时也接收一个对象
+        template:'<h2>这是定义全局组件的第二种方式<h2/>'
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            
+        },
+    })
+</script>
+</html>

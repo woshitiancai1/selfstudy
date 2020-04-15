@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>模板</title>
+    <title>创建组件的第一种方式</title>
     <!-- 导入Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
@@ -12,10 +12,18 @@
 </head>
 <body>
     <div id="app">
-
+        <!-- 把组件的名称以标签的形式放到页面上 -->
+        <mycom1/>
     </div>
 </body>
 <script>
+    //创建组件的第一种方式
+    const com1 = Vue.extend({//这里得到的com1是组件的构造函数
+        template:'<h1>这是创建的第一个全局组件</h1>'//表示组件的UI代码结构
+    })
+    //使用Vue.component向全局注册一个组件
+    //Vue.component('组件名称',组件的构造函数)
+    Vue.component('mycom1',com1);
     const vm = new Vue({
         el:"#app",
         data:{
@@ -43,7 +51,7 @@
             //使用JQuery封装出来的框架分为两部分：UI解构  JS代码
             //因此一些第三方的插件如果要结合Vue使用，而且，这个插件需要手动初始化
             //JS逻辑，此时，必须放在mounted中，否则，可能无法出现预期效果
-            
+
         }
     })
 </script>
