@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画-列表过渡</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            line-height: 30px;
+            border:1px dashed #ccc;
+            margin:5px;
+            font-size: 12px;
+            padding-left: 10px;
+            width: 200px;
+            cursor: pointer; 
+        }
+        li:hover{
+            background-color: orange;
+            box-shadow: 0 0 7px gray;
+        }
+        .v-enter,.v-leave-to{
+            opacity: 0;
+            transform: translateY(500px);
+        }
+        .v-enter-active,.v-leave-enter{
+            transition: all 0.5s ease;
+        }
+        /* 让元素被改变定位的时候，有一个缓动效果 */
+        .move{
+            transition: all 0.5s ease;
+        }
+        /* 表示要被删除的元素，让即将被移除的元素脱离标准流，这样后面的
+        元素就能渐渐的浮动上来 */
+        .v-leave-active{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            id:<input type="text" v-model="id"/>
+            name:<input type="text" v-model="name"/>
+            <input type="button" value="添加" @click="add"/>
+        </div>
+        <!-- tag表明将来把transition-group渲染为一个ul标签 -->
+            <transition-group tag="ul">
+                <li v-for="(item,i) in list":key="item.id" @click="remove(i)" >
+                    {{item.id}}......{{item.name}}
+                </li>
+            </transition-group>
+       
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            id:"",
+            name:"",
+            list:[
+                {id:1,name:'xue'},
+                {id:2,name:'ming'},
+                {id:3,name:'xing'},
+                {id:4,name:'hao'}
+            ]
+        },
+        methods:{
+            remove(i){
+                this.list.splice(i,1);
+            },
+            add(){
+                const p = {id:this.id,name:this.name};
+                this.list.push(p);
+                this.id = this.name = "";
+            }
+        },
+    })
+</script>
+</html>

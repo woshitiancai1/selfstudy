@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>name属性的必要性</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .v-enter,.v-leave-to{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        .v-enter-active,.v-leave-active{
+            transform: all 0.5s ease;
+        }
+        .fade-enter,.fade-leave-to{
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        .fade-enter-active,.fade-leave-active{
+            transform: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换" @click="flag=!flag"/>
+        <transition>
+            <h3 v-show="flag">nihao</h3>
+        </transition>
+        <hr/>
+        <input type="button" value="切换" @click="flag2=!flag2"/>
+        <transition name="fade">
+            <h3 v-show="flag2">nihao2</h3>
+        </transition>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+           flag:false, 
+           flag2:false,
+        },
+        methods:{
+            
+        },
+    })
+</script>
+</html>

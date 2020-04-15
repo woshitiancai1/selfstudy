@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钩子函数实现加入购物车效果</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #ball{
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="加入购物车" v-on:click="flag=!flag"/>
+        <!-- 在transition内部，定义了动画的声明周期函数 -->
+        <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter">
+            <div id="ball" v-show="flag"></div>
+        </transition>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            flag:false,
+
+        },
+        methods:{
+            //el指的是绑定动画的元素，也就是放有小球的div
+            beforeEnter(el){//小球开始动画之前的起始状态
+                el.style.transform = 'translate(0,0)';
+            },
+            enter(el,done){//小球动画结束之后的结束状态
+                el.offsetWidth
+                el.style.transform = 'translate(150px,300px)';
+                el.style.transition = "all 1s ease";
+                //当动画执行完毕后会执行done函数，这个done函数就是afterEnter函数的引用     
+                done()
+            },
+            afterEnter(el){//小球动画结束之后的回调函数，用来做一些清理工作
+                //通过取非操作，直接让小球跳过了后半场的动画
+                this.flag = !this.flag;
+            },
+        },
+    })
+</script>
+</html>
