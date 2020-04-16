@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父组件向子组件传递对象</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <com1 v-bind:msg="msgObj"></com1>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            msgObj:{
+                address:'张家口',
+                location:'张北'
+            }
+        },
+        methods:{
+            
+        },
+        components:{
+            'com1':{
+                //用JSON.stringify()将对象转化为字符串
+                template:'<h3>哈哈{{JSON.stringify(msg)}}</h3>',
+                props:['msg']//在这里接收到的msg是一个对象
+            }
+        },
+    })
+</script>
+</html>

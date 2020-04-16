@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if v-else</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 这里的v-if和v-else和JS中的if和else相同 -->
+        <!-- 如果flag为true，显示login -->
+        <login v-if="flag"></login>
+        <!-- 如果flag为false，则显示reg注册组件 -->
+        <reg v-else="flag"></reg>
+
+        <input type="button" value="显示登录" @click="flag=true"/>
+        <input type="button" value="显示注册" @click="flag=false"/>
+    </div>
+</body>
+<script>
+    Vue.component('login',{
+        template:
+        `<div>
+            <input type="text" value="输入账号"/> 
+            <input type="text" value="输入密码"/> 
+        </div>`
+    })
+    Vue.component('reg',{
+        template:'<h3>注册组件</h3>'
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            flag:false,
+        },
+        methods:{
+            
+        },
+    })
+</script>
+</html>

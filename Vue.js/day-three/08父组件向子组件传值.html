@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父组件向子组件传数据</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 父组件向子组件传递数据，则需要使用属性绑定的形式 -->
+        <!-- 这样，子组件身上的自定义数据，就是你要传递给子组件的数据 -->
+        <com1 v-bind:msg="parentMsg"></com1>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            //这里的parentMsg相当于是父组件的data数据
+            parentMsg:'你是想笑死我吗',
+        },
+        methods:{
+            
+        },
+        //定义私有组件
+        //在Vue中，默认子组件无法直接获取父组件中的数据
+        components:{
+            'com1':{
+                template:
+                `<div>
+                    <h3>这是子组件中的内容{{msg}}</h3>    
+                </div>`,
+                //在Vue中，只有props是数组，其他带s的属性都是对象
+                props:['msg']
+            },
+        },
+    })
+</script>
+</html>

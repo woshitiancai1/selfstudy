@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component切换组件</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        /* 即将进入时候的坐标 */
+        .v-enter{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        /* 离开时候的坐标 */
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        /* 进入过程的动画效果 */
+        .v-enter-active,.v-leave-active{
+            transition: all 0.4s ease;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a href="#" @click="comNum='com1'">显示组件一</a>.....
+        <a href="#" @click="comNum='com2'">显示组件二</a>.....
+        <a href="#" @click="comNum='com3'">显示组件三</a>.....
+        <a href="#" @click="comNum='com4'">显示组件四</a>
+        <!-- 通过component的is:属性可以显示指定名称的组件 -->
+        <!-- mode="out-in"实现先离开再进入的效果 -->
+        <!-- <transition mode="out-in"> -->
+        <transition>
+            <component :is="comNum"></component>
+        </transition>
+    </div>
+</body>
+<script>
+    Vue.component('com1',{
+        template:'<h3>组件一</h3>'
+    })
+    Vue.component('com2',{
+        template:'<h3>组件二</h3>'
+    })
+    Vue.component('com3',{
+        template:'<h3>组件三</h3>'
+    })
+    Vue.component('com4',{
+        template:'<h3>组件四</h3>'
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            comNum:'com1',//在data上定义一个属性来指定要渲染的组件的名称
+        },
+        methods:{
+            
+        },
+    })
+</script>
+</html>
