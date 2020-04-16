@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件私有的data和methods</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <mycom/>
+    </div>
+</body>
+<script>
+    Vue.component('mycom',{
+        template:'<h3 @click="show">这是自定义的全局组件{{msg}}</h3>',
+        //在组件中可以有自己的私有数据，但是，组件的data必须是一个function
+        //并且内部return一个对象
+        data:function(){
+            return {
+                msg:'hahaha'
+            };//必须返回一个对象
+        },
+        methods:{
+            show(){
+                console.log('触发了组价私有的show方法');
+            }
+        }
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            
+        },
+    })
+</script>
+</html>

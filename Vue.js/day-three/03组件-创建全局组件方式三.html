@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定义组件的第三种方式</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <mycom4/>
+        <mycom3/>
+    </div>
+    <div id="app2">
+
+    </div>
+    <!-- 定义一个template标签元素-->
+    <!-- 使用Vue提供的template标签，可以定义组件的UI模板结构 -->
+    <template id="tmpl">
+        <div>
+            <h3>hahaha,这是在外界定义的组件UI结构</h3>
+            <h2>xuemingxing</h2>
+        </div>
+    </template>
+</body>
+<script>
+    //定义全局组件的第三种方式
+    Vue.component('mycom3',{
+        template:'#tmpl'
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            
+        },
+        //定义私有的组件，只在自己控制的区域内有效
+        components:{
+            "mycom4":{
+                template:'<h6>这是定义的私有组件</h6>'
+            }
+        },
+    })
+</script>
+</html>

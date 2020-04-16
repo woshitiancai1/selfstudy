@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现点击count值加1</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <counter/>
+    </div>
+</body>
+<script>
+    //自己改造后的形式
+    // const o = {count:0}
+    Vue.component('counter',{
+        template:
+        `<div>
+            <input type="button" value="+1" @click="add"/>
+            <h3>当前的count值为:{{count}}</h3>
+        </div>`,
+        data:function(){
+            //自己改造后的形式
+            //return o;
+
+            //官方定义的方式
+            return {count:0}
+        },
+        methods:{
+            add(){
+                this.count++;
+            }
+        }
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            
+        },
+    })
+</script>
+</html>
