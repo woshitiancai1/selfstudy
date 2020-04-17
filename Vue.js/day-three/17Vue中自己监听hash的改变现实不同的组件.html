@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hash #</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a href="#/a">a</a>
+        <a href="#/b">b</a>
+        <a href="#/c">c</a>
+
+        <components :is="comName">
+
+        </components>
+    </div>
+</body>
+<script>
+    //创建三个组件
+    Vue.component('com1',{
+        template:'<h3>a</h3>'
+    })
+    Vue.component('com2',{
+        template:'<h3>b</h3>'
+    })
+    Vue.component('com3',{
+        template:'<h3>c</h3>'
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            comName:'com1',
+        },
+        methods:{
+
+        },
+        //当页面被渲染后，执行counted函数
+        mounted(){
+                window.onhashchange =()=>{
+                //获取到url中的hash地址
+                const hash = window.location.hash;
+                switch(hash){
+                    case '#/a':
+                        this.comName = 'com1';
+                        break;
+                    case '#/b':
+                        this.comName = 'com2';
+                        break;
+                    case '#/c':
+                        this.comName = 'com3';
+                        break;
+                    }
+                }
+            }
+    })
+</script>
+</html>

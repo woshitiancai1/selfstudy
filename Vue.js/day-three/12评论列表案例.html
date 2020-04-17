@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评论列表案例</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <cmt-box v-on:func="addNewCmt"></cmt-box>
+        <ul>
+            <cmt-item v-for="(item,index) in list":item="item":key="index"></cmt-item>
+        </ul>
+    </div>
+</body>
+<script>
+    //评论列表的子组件,从父组件的list列表中获取数据
+    Vue.component('cmt-item',{
+        template:`
+            <li>
+                <h3>评论人：{{item.name}}</h3>
+                <h5>评论内容：{{item.content}}</h5>
+            </li>`,
+        props:['item'],//props用来接收父组件的item对象
+    })
+    //评论框区域的子组件，把评论内容传递到父组件的list列表中
+    Vue.component('cmt-box',{
+        template:`
+            <div>
+                <label>评论人：<br></label>
+                <input type="text" v-model="name"/><br>
+                <label>评论内容：<br></label>
+                <textarea v-model="content"></textarea><br>
+                <input type="button" value="添加评论" v-on:click="postComment"/>
+            </div>`,
+        //每一个组件相当于是一个Vue实例，所以同样有data和methods
+        data:function(){
+            return{
+                name:'',
+                content:'',
+            }
+        },
+        methods:{
+            postComment(){
+                const cmt = {name:this.name,content:this.content};
+                //子组件中调用父组件传递过来的方法，可以把子组件中的数据
+                //当做参数传递给父组件中的方法去使用
+                this.$emit("func",cmt);
+                this.name = this.content = '';
+            }
+        },
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            list:[//list数组存放评论的内容  
+                {name:'zhangsan',content:'pinglun1'},
+                {name:'lisi',content:'pinglun2'},
+                {name:'wangwu',content:'pinglun3'},
+                {name:'xuemingxing',content:'评论4'},
+            ]
+        },
+        methods:{
+            addNewCmt(cmt1){//添加新评论 
+                this.list.push(cmt1);
+            }
+        },
+    })
+</script>
+</html>

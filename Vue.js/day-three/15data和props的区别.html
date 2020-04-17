@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data和props的区别</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Vue中，用v-bind来绑定属性 -->
+        <!-- 父组件给子组件传值 -->
+        <com1 v-bind:info="info"></com1>
+    </div>
+</body>
+<script>
+    //1.data在组件中要被定义成一个function，并且返回一个对象
+    //props在组件中要被定义成一个数组，其中数组的值都是字符串名，表示父组件传递过来的数据
+
+    //data是私有的数据，而props是外界传过来的数据
+
+    Vue.component('com1',{
+        template:`
+            <div>
+                <input type="button" value="按钮" v-on:click="btnClick"/>
+                <h3>{{msg}}.....{{info2}}</h3>
+            </div>`,
+        data:function(){
+            return{
+                msg:'ok',
+                //props上的数据不要重新修改，如果想要修改，必须在data上重新定义
+                //一个属性，然后把属性的值从this.props拿过来
+                info2:this.info,
+            }
+        },
+        //props上的数据只能读取不可修改
+        props:['info'],
+        methods:{
+            btnClick(){
+                this.msg = 'no';
+                this.info2 = '456'
+            }
+        }
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            info:'123'
+        },
+        methods:{
+            
+        },
+    })
+</script>
+</html>

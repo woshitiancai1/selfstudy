@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ref获取组件</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="获取组件" v-on:click="getCom"/>
+        <com1 ref="mycom"></com1>
+    </div>
+</body>
+<script>
+    Vue.component('com1',{
+        template:'<h3>这是一个小组件{{msg}}</h3>',
+        //这是子组件上的数据
+        data:function(){
+            return{
+                msg:'ok',
+            }
+        },
+        //这是子组件的方法
+        methods:{
+            show(){
+                console.log('这是子组件的方法');
+            }
+        }
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            getCom(){
+                //修改子组件上的数据
+                this.$refs.mycom.msg = '123';
+                //调用子组件上的方法
+                this.$refs.mycom.show();
+            }
+        },
+    })
+</script>
+</html>

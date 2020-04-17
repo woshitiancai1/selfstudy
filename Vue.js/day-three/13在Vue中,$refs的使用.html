@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$refs的使用</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点击获取元素的内容" v-on:click="getInfo"/>
+        <!-- 为被获取值的元素加一个ref属性 -->
+        <h3 ref="myH3">{{msg}}</h3>
+
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+           msg:0, 
+        },
+        methods:{
+            getInfo(){//点击按钮，获取h3文本中的内容
+                //ref属性：
+                //this.$refs.myH3:获取到ref名为myH3的元素的值
+                console.log(this.$refs.myH3);
+            }
+        },
+    })
+</script>
+</html>

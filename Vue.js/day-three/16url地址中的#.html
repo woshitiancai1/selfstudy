@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- hash # 不会刷新页面，也不会发起新的http请求 -->
+    <!-- 它只是实现客户端页面的定位 -->
+    <!-- #可以修改浏览器端的访问历史记录 -->
+    <a href="#/a"></a>
+</body>
+<script>
+    //hash值包括#和#后面的内容
+    //window.onhashchange函数可以监听到hash值的变化
+    window.onhashchange = function(){
+        console.log('hsan被改变了');
+        console.log(location.hash);//获取hash值
+    }
+</script>
+</html>

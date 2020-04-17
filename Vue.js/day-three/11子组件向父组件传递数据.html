@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父组件向子组件传递方法</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 1.如果要向子组件传递data中的数据，则使用属性绑定的形式 v-bind -->
+        <!-- 2.如果要向子组件传递methods中的方法，则使用事件绑定的形式v-on -->
+        <com1 v-on:func="show"></com1>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            //将子组件传递过来的数据保存到父组件中
+            msgFromSon:'',
+        },
+        methods:{
+            show(arg1){
+                console.log('调用了父组件中的show方法'+arg1);
+                //将子组件传递过来的数据保存到父组件中
+                this.msgFromSon = agr1;
+            }
+        },
+        components:{
+            'com1':{
+                //当点击子组件的按钮时，调用一下父组件传递的func方法
+                template:`<div>
+                    <input type="button" value="这是子组件的按钮" v-on:click="btnClick"/>    
+                </div>`,
+                data:function(){
+                    return{
+                        msg:'这是子组件中的数据'
+                    }
+                },
+                methods:{
+                    btnClick(){
+                        //子组件向父组件传值，本质上还是调用了父组件传递过来的方法，
+                        //只不过子组件在调用的时候，把数据当做参数传递给这个方法了
+                        this.$emit("func",this.msg);
+                    }
+                }
+            }
+        }
+    })
+</script>
+</html>
