@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名称案例</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 导入vue-router -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        firstname:
+        <input type="text" v-model="firstname" v-on:keyup="textChanged"/> + lastname:
+        <input type="text" v-model="lastname" v-on:keyup="textChanged"/> = fullname:
+        <input type="text" v-model="fullname"/>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            firstname:'',
+            lastname:'',
+            fullname:'',
+        },
+        methods:{
+            textChanged(){
+                this.fullname = this.firstname + this.lastname;
+            }
+        },
+    })
+</script>
+</html>

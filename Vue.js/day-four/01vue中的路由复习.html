@@ -36,7 +36,8 @@
     //创建路由对象
     const router = new Router({
         routes:[//路由规则的数组，里面放的是每个hash到组件的对应关系
-            {}
+            {path:'/login',component:login},
+            {path:'/reg',component:reg}
         ]
     })
     const vm = new Vue({
