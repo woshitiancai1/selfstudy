@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路由切换和高亮</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 导入vue-router -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <style>
+        /* 点击登录注册按钮时，自定义样式 */
+        .router-link-active{
+            color:red;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 20px;
+            text-decoration: underline;
+        }
+        .v-enter,.v-leave-to{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        .v-enter-active,.v-leave-active{
+            transition: all 0.3s ease;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <router-link to='/login'>登录</router-link>
+        <router-link to='/reg'>注册</router-link>
+        <!-- 展示路由组件的容器 -->
+        <transition>
+            <router-view></router-view>
+        </transition>
+    </div>
+</body>
+<script>
+    const login = {
+        template:'<h3>登录组件</h3>'
+    }
+    const reg = {
+        template:'<h3>注册组件</h3>'
+    }
+    const router = new VueRouter({
+        routes:[
+            //redirect:'/login'表明当监听到根路径时，控制路由跳转到/login
+            {path:'/',redirect:'/login'},
+            {path:'/login',component:login},
+            {path:'/reg',component:reg}
+        ],
+        linkActiveClass:''//配置默认被选中路由的高亮类名的，
+                          //默认类名为router-link-active
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            
+        },
+        router:router
+    })
+</script>
+</html>
