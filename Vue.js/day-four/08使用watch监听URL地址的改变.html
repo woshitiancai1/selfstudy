@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用watch监听URL地址的改变</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 导入vue-router -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/login">登录</router-link>
+        <router-link to="/reg">注册</router-link>
+        <router-view></router-view>
+        <h3>{{msg}}</h3>
+    </div>
+</body>
+<script>
+    const login = {
+        template:'<h1>登录组件</h1>'
+    }
+    const reg = {
+        template:'<h1>注册组件</h1>'
+    }
+    const router = new VueRouter({
+        routes:[
+            {path:'/login',component:login},
+            {path:'/reg',component:reg}
+        ]
+    })
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            msg:'欢迎'
+        },
+        methods:{
+            
+        },
+        //在页面刚被打开的时候会被执行，同时页面被刷新了也会执行
+        created() {
+            //this.$route.path获取到当前的URL地址
+            if(this.$route.path == '/login'){
+                    this.msg = '欢迎进入登录界面';
+                }
+                else{
+                    this.msg = '欢迎进入注册界面';
+                }
+        },
+        router:router,
+        //在watch中，可以监听当前vm实例上所有的属性变化
+        watch:{
+            '$route.path':function(newval){
+                if(newval == '/login'){
+                    this.msg = '欢迎进入登录界面';
+                }
+                else{
+                    this.msg = '欢迎进入注册界面';
+                }
+            }
+        }
+    })
+</script>
+</html>
