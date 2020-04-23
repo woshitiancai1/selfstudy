@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建类和对象</title>
+    
+</head>
+<body>
+    
+</body>
+<script>
+    //constructor为构造函数的意思，用于传递参数和返回实例对象
+    //创建类的语法：class name{} 
+    //创建实例: var xx = new name();
+    class Star {
+        constructor(name,age){//name为形参，用来接收实例化对象时传递的参数
+            this.name = name;//this.name用来接收这个参数的值
+            this.age = age;
+            //this指向的是所创建的实例，在这里也就是ldh
+        } 
+    }
+    var ldh = new Star('刘德华',18); 
+    console.log(ldh.name,ldh.age);
+</script>
+</html>
