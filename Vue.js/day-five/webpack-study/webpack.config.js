@@ -17,5 +17,11 @@ module.exports = {
             template:path.join(__dirname,'./src/index.html'),//指定模板页面的路径
             filename:'index.html'//指定内存中生成的html名称
         })
-    ]
+    ],
+    module:{//用来配置非JS文件对应的loader
+        rules:[//就是这些非JS文件和loader之间的对应关系
+            {test:/\.css$/,use:['style-loader','css-loader']},//创建处理css文件的laoder匹配规则
+
+        ]
+    }
 }
