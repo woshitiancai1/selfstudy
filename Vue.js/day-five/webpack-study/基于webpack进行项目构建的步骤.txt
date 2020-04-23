@@ -1,0 +1,20 @@
+1.在项目的文件夹中，进行初始化npm init -y,然后会出现一个package.json配置文件
+2.安装webpack：
+-全局安装 cnpm i webpack -g    
+-项目安装：cnpm i webpack -D
+3.新建基本的项目结构：
+-dist文件夹：用来放发布之后的代码
+-src文件夹：用来放项目在开发过程中的代码 
+-在src文件夹中放index.html、JS入口文件mian.js
+4.将mian.js文件打包到dist文件夹下，名称为bundle.js
+-命令为:webpack .\src\main.js -o .\dist\bundle.js
+5.在mian.js中导入jquery：import $ from 'jquery',写JQ代码，并打包
+6.项目中安装webpack-dev-server：cnpm i webpack-dev-server -D
+7.在项目的package.json文件中的scripts节点中加入：
+"scripts": {
+    "dev":"webpack-dev-server --open --port 3000 --host 127.0.0.1 --hot"
+},
+8.在根目录新建配置文件：webpack.config.js，并对文件进行配置
+9.装插件：cnpm i html-webpack-plugin
+10.在webpack.config.js配置文件中，进行插件的配置
+9.控制台输入 npm run dev
