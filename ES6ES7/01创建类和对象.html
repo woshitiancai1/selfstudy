@@ -19,8 +19,15 @@
             this.age = age;
             //this指向的是所创建的实例，在这里也就是ldh
         } 
+        //创建方法
+        sing(name1){//形参，用来接收参数
+            console.log(this.name);
+            console.log(name1+'是天才');
+        }
     }
     var ldh = new Star('刘德华',18); 
     console.log(ldh.name,ldh.age);
+    //调用方法
+    ldh.sing('xuemingxing');//方法传递实参
 </script>
 </html>

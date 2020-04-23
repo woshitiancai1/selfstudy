@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Father {
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }
+        sum(){
+            console.log(this.x + this.y);
+        }
+    }
+    class Son extends Father {
+        //super关键字用于访问和调用父类上的关键字
+        //super关键字可以实现子类向父类传递数据
+        constructor(x,y){
+            super(x,y);//调用了父类中的构造函数,也就是调用了父类的constructor构造函数
+        }
+    }
+    var son = new Son(1,2);//3
+    son.sum();
+    //以上的执行过程为：
+    //1.var son = new Son(1,2)首先实例化子类的对象，并向其中传参1和2
+    //2.Son中的constructor构造函数接收到了1和2，然后执行super关键字
+    //3.super关键字会调用父类的constructor构造函数并向其中传参1和2
+    //4.这时父类的constructor构造函数会收到参数x和y的值，
+    //5.由于子类继承了父类的sum方法，所以可以调用。
+    //6.由于父类的constructor构造函数已经接收到参数的值，所以sum函数可以正常执行。
+</script>
+</html>
