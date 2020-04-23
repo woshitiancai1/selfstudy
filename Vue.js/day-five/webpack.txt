@@ -12,3 +12,28 @@ webpack非常适合与单页面应用程序结合使用，不太适合与多页�
 安装：
 1.全局安装 cnpm i webpack -g    
 项目安装：cnpm i webpack -D
+
+使用webpack的配置文件简化打包时候的命令：
+1.在项目中，新建一个配置文件叫webpack.config.js
+2.在配置文件中，向外暴露一个配置对象，供webpack执行的时候来服读取这个配置对象
+
+实现webpack的实时打包构建：
+1.每次修改完项目代码，都要手动运行一下webpack命令来进行打包构建，比较麻烦
+2.可以在项目本地安装一个webpack-dev-server，的工具来实现实时打包的效果
+3.注意：webpack-dev-server这个工具，需要在项目本地安装，同时，他依赖于项目本地的webpack
+npm i webpack webpack-dev-server
+4.需要打开packjson配置文件，找到scripts节点，在其中新增一个脚本命令，"dev":"webpack-dev-server"
+5.在终端中，运行npm run dev，去执行dev脚本，启动webpack-dev-server这个实时构建编译的脚本
+6.注意：webpack-dev-server打包出来的bundle.js并没有存放到实际的物理磁盘，而是托管到了内存中
+托管的路径是项目的根目录，所以在引用的时候scripts应该这么写:<script src="/bundle.js"></scripts>
+
+使用html-webpack-plugin插件配置启动页面：
+1.这个插件的作用
+-能够根据给定的页面路径，在内存中生成一个一模一样的页面
+-能够在内存中生成的页面中，自动把打包好的bundle.js文件，注入为一个script标签
+2.如何配置插件：运行cnpm i html-webpack-plugin -D安装到本地开发依赖
+3.在webpack.config.js中，导入这个插件
+4.在webpack.config.js中的配置对象中，新增一个plugins插件节点
+
+webpack在打包入口文件的时候，会把这个文件中，所有依赖的第三方包或JS文件，也当做模块
+一起打包到bundle.js文件中，这样，被打包的入口文件就能正常执行了
