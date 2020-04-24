@@ -18,3 +18,34 @@
 9.装插件：cnpm i html-webpack-plugin
 10.在webpack.config.js配置文件中，进行插件的配置
 9.控制台输入 npm run dev
+
+使用webpack打包css文件：
+1.运行cnpm i style-border css-border -D来安装处理.css文件的第三方loader加载器
+2.在webpack.config.js配置文件中，添加一个module节点，并在module节点下，新增一个
+rules数组，表示非JS文件的匹配规则
+module:{//用来配置非JS文件对应的loader
+        rules:[//就是这些非JS文件和loader之间的对应关系
+            {test:/\.css$/,use:['style-loader','css-loader']},//创建处理css文件的laoder匹配规则
+
+        ]
+    }
+
+
+使用webpack打包less文件：
+如果想要处理.less后缀名的文件，需要安装并配置less-loader less
+1.运行cnpm i less-loader -D,cnpm i less -D来安装处理
+2.添加新的loader匹配规则，less不需要配置
+
+使用webpack打包scss文件：
+1.安装并配置sass-loader和node-sass，其中node-sass不需要配置
+cnpm i sass-loader -D   cnpm i node-sass -D
+
+使用webpack处理样式表中的图片路径：
+需要安装并配置url-loader和file-loader（file-loader不需要配置）
+cnpm i url-loader -D 和cnpm i file-loader -D 
+
+如果要处理高级的ES语法，需要安装两个相关的包：
+运行：cnpm i babel-core babel-loader babel-plugin-transform-runtime -D
+运行：cnpm i babel-preset-env babel-preset-stage-0 -D
+注意：以babel-preset开头的包，叫做Babel语法，
+以abel-plugin开头的叫做Babel插件

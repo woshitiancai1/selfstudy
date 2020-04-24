@@ -20,8 +20,22 @@ module.exports = {
     ],
     module:{//用来配置非JS文件对应的loader
         rules:[//就是这些非JS文件和loader之间的对应关系
-            {test:/\.css$/,use:['style-loader','css-loader']},//创建处理css文件的laoder匹配规则
-
+            //创建处理css文件的laoder匹配规则
+            {test:/\.css$/,use:['style-loader','css-loader']},
+            //配置处理less文件的规则
+            {test:/\.less$/,use:['style-loader','css-loader','less-loader']},
+            //配置处理scss文件的规则
+            {test:/\.scss$/,use:['style-loader','css-loader','sass-loader']},
+            //配置处理样式表中图片的规则
+            //loader规则，可以使用?给url-loader传递参数：
+            //其中，有个固定参数limit表示图片的大小 ，需要给定一个数组
+            //limit给定的这个数值是图片的大小，单位是Byte(字节)
+            //如果指定了limit参数，则只有图片的大小 小于给定的值，才会转为base64格式
+            //否则不转化
+            {test:/\.jpg|png|gif|bmp$/,use:['url-loader?limit=110378&name=[hash:6][name].[ext]']},
+            //添加转化JS文件的loader，必须将node_modules目录设置为排除项
+            //否则项目运行不起来
+            // {test:/\.js$/,use:'babel-loader',exclude:/node_modules/},
         ]
     }
 }
