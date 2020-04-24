@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Star(name,age){
+        //1.在构造函数中，里面的this指向对象实例--ldh对象实例
+        this.name = name;
+        this.age = age;
+    }
+    //2.原型对象函数里面的this指向的是实例对象
+    Star.prototype.sing = function(){
+        console.log("薛明星是天才");
+    }
+    var ldh = new Son("薛明星",20);
+</script>
+</html>

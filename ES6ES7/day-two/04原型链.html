@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Star(name,age){
+        this.name = name;
+        this.age = age;
+    }   
+    Star.prototype = {
+        constructor:Star,   
+        sing:function(){
+            console.log("我是天才薛明星");
+        },
+        movie:function(){
+            console.log("我是天才薛明星.hahha");
+        }
+    }
+    var ldh = new Star("薛明星",20);    
+    ldh.sing();
+    //Star原型对象里面的__proto__原型指向的是Object.prototype
+    console.log(Star.prototype.__proto === Object.prototype);//true
+</script>
+</html>

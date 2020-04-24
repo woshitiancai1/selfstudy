@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+</body>
+<script>
+    //1.利用new Object()创建对象
+    var obj1 = new Object();
+    //2.利用对象字面量创建对象
+    var obj2 = {
+
+    }
+
+    //3.利用构造函数创建对象
+    function Star(name,age){//构造函数首字母要大写
+        this.name = name;
+        this.age = age;
+        this.sing = function(){
+            console.log("我是天才薛明星");
+        }
+    }
+    var ldh = new Star("薛明星",20);
+    ldh.sing();
+    //new在执行时会做四件事情：
+    //1.在内存中创建一个新的空对象
+    //2.让this指向这个新对象
+    //3.执行构造函数里面的代码，给这个新对象添加属性和方法
+    //4.返回这个新对象
+
+    //构造函数中的属性和方法我们称为成员，成员可以添加
+    //1.实例成员：构造函数内部通过this添加的成员，如：name、age、sing方法
+    //-实例成员只能通过实例化的对象来访问 ldh.sing();
+    //2.静态成员：在构造函数本身上添加的成员 如：
+    Star.sex = '男';//这时的sex就是静态成员
+    //静态成员只能通过构造函数来访问 如：console.log(Star.sex);
+</script>
+</html>

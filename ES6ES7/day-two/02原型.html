@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Star(name,age){//构造函数首字母要大写
+        this.name = name;
+        this.age = age;
+        // this.sing = function(){
+        //     console.log("我是天才薛明星");
+        // }
+    }   
+    //构造函数通过原型分配的函数是所有对象所共享的
+    //JS规定，每一个构造函数都有一个prototype属性，指向另一个对象。
+    //而这个prototype就是一个原型对象，这个对象的属性和方法都被构造函数所拥有。
+    //我们可以把那些不变的方法，直接定义在prototype原型对象上，这样所有对象实例就可以共享这些方法
+    //例如：
+    Star.prototype.sing = function(){
+        console.log("我是天才薛明星");
+    }
+    var ldh = new Star("薛明星",20);
+    var zxy = new Star("张学友",55);
+    ldh.sing();
+</script>
+</html>
