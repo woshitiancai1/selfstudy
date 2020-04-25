@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //call方法
+    function fn(){
+        console.log("薛明星是天才");
+        console.log(this);//window
+    }
+    var o = {
+        name:'tiancia',
+    }
+    //1.call()可以调用函数
+    // fn.call();
+    //2.call()可以改变函数的this指向
+    fn.call(o);//这个时候fn函数里面的this指向o这个对象
+    //call()里面的第一个参数用来改变this的指向
+</script>
+</html>

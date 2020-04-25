@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+        //1.forEach(迭代)遍历数组
+        var arr = [1,2,3];
+        arr.forEach(function(value,index,array){
+            console.log('每个数组元素'+value);
+            console.log('每个数组元素的索引号'+index);
+            console.log('数组本身'+array);
+        })
+
+        //2.filter筛选数组
+        //filter方法返回的是一个数组
+        var arr2 = [12,66,4,88];
+        //用newArr来接收filter方法返回的新数组
+        var newArr = arr2.filter(function(value,index,array){
+            return value >= 20;//筛选出数组中大于20的元素
+        })
+        console.log(newArr)
+
+        //3.some()方法：查找数组中是否有满足指定条件的元素
+        //some()方法：若前边的元素已经满足条件，则不会再查找后边的元素
+        //some()方法返回一个布尔值
+        var arr3 = [10,30,4];
+        var flag = arr3.some(function(value,index){
+            return value >= 20;//查找数组中是否有大于等于20的元素
+        })
+        console.log(flag)//true
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //借用父构造函数继承属性
+    //1.父构造函数
+    function Father(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Father.prototype.money = function(){
+        console.log("我是父构造函数的方法");
+    }
+    function Son(name,age,score){
+        Father.call(this,name,age);//用来实现子构造函数继承父构造函数的两个属性
+        this.score = score;
+    }
+    //利用原型对象实现方法的继承
+    Son.prototype = new Father();
+    //如果利用对象的形式修改了原型对象，要记得利用constructor指回原来的构造函数
+    Son.prototype.constructor = Son;
+    var son = new Son("liudehua",20,100);
+    console.log(son.money())
+</script>
+</html>
