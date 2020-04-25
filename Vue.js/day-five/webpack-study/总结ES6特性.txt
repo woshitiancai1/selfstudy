@@ -1,0 +1,18 @@
+let const
+箭头函数
+Propmise
+解构赋值
+默认形参
+函数拓展
+模板字符串
+字符串的扩展
+async await
+ES6中的导入和导出
+定义对象的快捷方式
+class 关键字：
+Fetch API:作用是发起ajax请求，目的是替代传统的XHR对象
+fetch('请求的url地址字符串').then(function(res){
+    return res.json()
+}).then(result=>{
+    console.log(result);
+})

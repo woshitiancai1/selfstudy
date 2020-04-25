@@ -35,3 +35,10 @@ $(function(){
 //     static info = {name:'zhangsan'}
 // }
 // console.log(Person.info)
+
+//c as cc为对c取别名为cc
+import m1,{c as cc} from './js/01导入和导出.js'
+//console.log(m1);
+
+//import './js/02class实现面向对象编程'
+import './js/03使用class实现面向对象编程'

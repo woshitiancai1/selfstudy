@@ -35,7 +35,7 @@ module.exports = {
             {test:/\.jpg|png|gif|bmp$/,use:['url-loader?limit=110378&name=[hash:6][name].[ext]']},
             //添加转化JS文件的loader，必须将node_modules目录设置为排除项
             //否则项目运行不起来
-            // {test:/\.js$/,use:'babel-loader',exclude:/node_modules/},
+            //{test:/\.js$/,use:'babel-loader',exclude:/node_modules/},
         ]
     }
 }
