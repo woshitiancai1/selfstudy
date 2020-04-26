@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Object.keys遍历对象属性,返回的是一个由属性名组成的数组
+    var obj = {
+        id:1,
+        name:'xuemingxing',
+        age:20
+    }
+    var arr = Object.keys(obj);
+    console.log(arr);//结果为：["id","name","age"]
+    arr.forEach(function(value,index){
+        console.log(value);
+    });
+
+    //对象方法：
+    //1.value：设置属性的值，默认为value
+    //2.writeable：值是否可以被重写，默认为false
+    //3.enumerable：目标属性是否可以被枚举，默认为false
+    //4.configurable：目标属性是否可以被删除或是可以被再次修改特性，默认为false
+</script>
+</html>

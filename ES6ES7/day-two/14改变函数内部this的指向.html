@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+</body>
+<script>
+    //改变函数内this指向，js提供了三种方法， call() apply() bind()
+
+    //1.call()
+    var o ={
+        name:'xue'
+    }
+    function fn(a,b){
+        console.log(this);//普通函数的this指向window
+        console.log(a+b);
+    }
+    fn.call(o,1,2);//利用call()方法this指向，这时this指向对象o，并调用函数fn()
+    //call()的主要作用可以实现继承
+    function Father(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    function Son(name,age){
+        Father.call(this,name,age);//实现子类继承父类构造函数里面的属性
+    }
+    var son = new Son('liu',20);
+    console.log(son.name)
+
+    //2.apply()
+    var o ={
+        name:'xue'
+    }
+    function fn(arr){
+        console.log(this);//普通函数的this指向window
+        console.log(arr);//pink
+    }
+    fn.apply(o,['pink']);//apply()也可以调用函数并改变函数内部的this指向
+    //但是参数必须是数组
+    //apply的主要应用：可以利用apply借助数学内置对象求最大值或最小值
+    var arr = [1,66,3,69,4];
+    var max = Math.max.apply(Math,arr);
+    var min = Math.min.apply(Math,arr);
+    console.log(max,min);
+
+    //3.bind():不会调用函数，但是会改变函数内部的this指向
+    var o ={
+        name:'xue'
+    }
+    function fn(a,b){
+        console.log(this);//对象o
+        console.log(a+b);
+    }
+    var f = fn.bind(o,1,2);//返回的是原函数改变this之后产生的新函数
+    f();//调用原函数改变this之后产生的新函数
+
+    //bind()应用：一个按钮，点击之后被禁用，3秒之后开启这个按钮
+    var btn = document.querySelector('button');
+    btn.onclick = function(){
+        this.disabled = true;
+        //var that = this;
+        setTimeout(function(){//定时器里面的this指向window
+            //that.disabled = false;//这里的that指向的是btn这个按钮
+            this.disabled = false;
+        }.bind(this),3000)//让定时器里面的this指向btn对象
+    }
+</script>
+</html>
