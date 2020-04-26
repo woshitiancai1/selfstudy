@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>render</title>
+    <!-- 导入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+</body>
+<script>
+    const login = {
+        template:'<h3>这是一个登录组件</h3>'
+    }
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            
+        },
+        //render函数会把之前的内容清除掉，页面只能显示这个render组件，不能有其它内容
+        render:function(createElements){//Vue规定了render必须是一个函数，
+            //同时render函数的参数列表中有个形参叫createElements，将来，Vue
+            //在调用render的时候会给我们传递一个形参
+
+            //注意：Vue给我们传递的这个createElements是一个方法，接收一个要
+            //渲染的组件
+            return createElements(login);
+        },
+    });
+</script>
+</html>
