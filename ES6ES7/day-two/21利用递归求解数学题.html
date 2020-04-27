@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //1.求n的阶乘
+    function fn(num){
+        if(num == 1){
+            return 1;
+        }
+        else{
+            return num * fn(num-1);
+        }
+    }
+    console.log(fn(5));
+
+    //2求斐波那契数列(兔子序列)
+    function fb(n){
+        if(n == 1 || n == 2){
+            return 1;
+        }
+        else{
+            return fb(n-1) + fb(n-2);
+        }
+    }
+    console.log(fb(3))
+</script>
+</html>
