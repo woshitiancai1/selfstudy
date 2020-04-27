@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="nav">
+        <li>我</li>
+        <li>是</li>
+        <li>天</li>
+        <li>才</li>
+    </ul>
+</body>
+<script>
+    var lis = document.querySelector('.nav').querySelectorAll('li');
+    //一：点击输出索引号
+    //可以利用动态添加属性的方式
+    for(var i = 0;i<lis.length;i++){
+        lis[i].index = i;
+        lis[i].onclick = function(){
+            //console.log(i);//这样输出的索引值i全部为4
+            console.log(this.index);//这样可以拿到对应的索引号
+        }
+    }
+    //2.利用闭包的方式得到对应的索引号
+    for(var i=0;i<lis.length;i++){
+        //利用for循环创建四个立即执行函数
+        (function(index){
+            lis[i].onclick = function(){
+                console.log(index);
+            }
+        })(i);
+    }
+
+    //二：三秒钟之后，打印所有li元素的内容(定时器里面的闭包)
+    for(var i=0;i<lis.length;i++){
+        (function(index){
+            setTimeout(function(){
+                console.log(lis[index].innerHTML);
+            },3000)
+        })(i)
+    }
+
+    //三：计算打车价格
+    //打车起步价为13元（3公里内），之后每多一公里增加5元，用户输入公里数就可以计算打车
+    //价格，如果有拥堵情况，总价格多收取10元
+    var car = (function(){
+        var start = 13;//起步价
+        var total = 0;//总价
+        return {
+            price:function(n){//正常的总价
+                if(n <= 3){
+                    total = start;
+                }
+                else{
+                    total = start + (n-3)*5;
+                }
+                return total;
+            },
+            yd:function(flag){//拥堵的费用
+                return flag?total+10 : total;
+            }
+        }
+    })();
+    console.log(car.price(9));
+    console.log(car.yd(true));
+</script>
+</html>
