@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="message"></textarea>
+    <button>提交</button>
+    <div></div>
+</body>
+<script>
+    //替换replace
+    //var str = "and和red";
+    // console.log(str.replace("and","baby"));
+    //var newStr = str.replace(/and/,"baby");//正则表达式实现替换
+    //console.log(newStr);
+
+    //正则表达式实现敏感词的替换
+    var text = document.querySelector("textarea");
+    var btn = document.querySelector("button");
+    var div = document.querySelector("div");
+    btn.onclick = function(){
+        //正则表达式参数：/表达式/[switch]
+        //g：全局匹配  i:忽略大小写  gi：全部匹配+忽略大小写
+        div.innerHTML = text.value.replace(/激情/gi,"**");//replace只能替换满足第一个条件的字符串
+    }
+</script>
+</html>

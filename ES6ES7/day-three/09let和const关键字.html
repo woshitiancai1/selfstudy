@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //var和function存在变量提声
+    //全局作用域下，使用var和function声明的变量会给window添加属性
+
+    //let关键字，用于替换var，防止循环变量变为全局变量，let声明的变量不存在变量提声
+    //1.let声明的关键字只在所处的块级有效，一对大括号就是一个块级作用域
+    //var关键字不具备这个特点
+    //let声明的关键字不可以重复声明，不会给window增加属性
+    if(true){
+        let a =10;//变量a只能在这个大括号内访问
+        //const声明的变量也同理
+    }
+    let a = 2;//let声明的值是可以修改的
+    a=3;
+    a=4;
+    
+    //const关键字定义变量：
+    //没有变量提声、不可以重复声明、不会给window增加属性，声明的变量必须赋值
+    const a = 10;//const定义的变量之后不可以修改，const定义的是一个常量
+
+    //{name:"xue",age:20}如果{}放在行首，会被当做块级作用域
+    //eval('{name:"xue",age:20}')：会得到一个对象
+</script>
+</html>

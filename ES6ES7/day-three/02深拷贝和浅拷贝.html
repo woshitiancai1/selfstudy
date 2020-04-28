@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //浅拷贝只是拷贝一层，更深层次对象级别的只拷贝引用
+    //深拷贝拷贝多层，每一级别的数据都会拷贝
+
+    var obj = {
+        id:1,
+        name:'andy',
+        msg:{
+            age:18
+        }
+    }
+    var o = {}
+
+    //浅拷贝
+    // Object.assign(o,obj);
+    // console.log(o);
+    // o.msg.age = 20;
+    // console.log(obj);
+
+    //深拷贝
+    //封装函数
+    function deepCopy(o,obj){//obj为要拷贝的对象，o为要拷贝给的对象
+    //代表把obj拷贝给o
+        for(var k in obj){
+            //判断我们的属性值属于哪种类型
+            //1.获取属性值，obj[k]
+            var item = obj[k];
+            
+            if(item instanceof Array){
+                o[k] = [];
+                deepCopy(o,item);
+            }
+            else if(item instanceof Object){
+                o[k] = {};
+                deepCopy(o,item);
+            }
+            else{
+                o[k] = item;
+            }
+        }
+    }
+    deepCopy(o,obj);
+    console.log(o);
+</script>
+</html>
