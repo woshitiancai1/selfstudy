@@ -14,5 +14,39 @@
     let [x,y,m,n] = arr;//将数组1 2 3 4的值分别赋给x y m n
     //if:let [x,y,m,n] = [1,2,3],这样n为undefined
     let [x1,x2=10] = [1,2];//先给x2赋一个默认值，如果后边有值再给它替换掉
+    let [,,m2] = [1,2,3];//这样只能得到m2的值为3
+    //不定参数赋值
+    let [y1,y2,...y3] = [1,2,3,4,5];//这样会把后面的3 4 5 放在一个数组中赋给y3
+
+    //二：对象的解构赋值
+    let {name,age} = {name:"zhufeng",age:10};//如果属性名和变量名一样，
+    //可以直接省略写法,原本的写法是这样：let {name:name,age:age}
+    //:前边的name和age为属性，:后边的name和age为变量
+    console.log(name,age);//zhufeng,20  因为name和age分别存放着对象的属性值
+    let {name,age=100} = {name:"zhufeng",age:10};//为age设置默认值
+
+    //三：对象和数组混用嵌套
+    let {name,age=20,list:[a1,a2,a3,a4]} = {name:"zhufeng",age:10,list:["js","node","vue","react"]};
+    //list是属性，[a1,a2,a3,a4]是变量
+
+    //四：其它数据类型的解构赋值
+    //（1）使用数组的解构赋值的形式，如果等号右边不是数组，默认将其转换为类数组
+    //类数组为类似数组的对象，必须有一个length属性
+    let [x,y] = "123";//字符串123会被默认转化为["1","2","3"]
+    console.log(typeof x,y);//这样得到的x和y为为字符串1和2
+    //（2）使用对象的解构赋值的形式，等号右边不是对象，默认转为对象
+    let {__proto__:a} = 1;//把1转换为对象之后的__proto__属性解构出来并赋值给a
+    console.log(a);//Number{1}
+    let {length:b} = "1234";//这样会把字符串的length属性解构出来并把值赋给b
+    console.log(b);//4
+    //（3）函数参数的赋值
+    function getA([a,b,c,...d]){
+
+    }
+    getA([1,2,3,4,5]);
+    function getB({name="zhangsan",age}){
+
+    }
+    getB({name:"zhufeng",age:20})
 </script>
 </html>
