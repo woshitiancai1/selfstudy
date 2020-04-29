@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //一：对象的简洁表达方式
+    let name="zhufeng",age=100;
+    let school = {name,age};
+    //相当于：let school = {name:'zhufeng',age:20};
+    let str = "name";
+    let obj = {
+        fn:function(){
+
+        },
+        //属性名都是字符串
+        [str]:name,//这样属性名就可以写成变量了
+    }
+
+    //二：关于Object的方法扩展
+    //Object()：可以把参数变成对象
+    //（1）Object.is:判断两个值是否相等,NaN跟任何值都不相等(包括NaN)
+    Object.is(NaN === NaN);//true
+    Object.is(0 === -0);//false
+    //（2）Object.assign():合并对象,返回一个新的对象
+    let obj1 = {name:'zhufeng'};
+    let obj2 = {age:10};
+    let school1 = Object.assign(obj1,obj2);
+    console.log(school1);
+    //(3)ES7:提供了对象的扩展运算符...
+    let school2 = {...obj1, ...obj2};//合并两个对象
+    console.log(school2);
+    //(4)Object.getOwnPropertyDescriptor():获取一个对象中某个属性的描述
+    console.log(Object.getOwnPropertyDescriptor("123","length"));
+    //configurable: false:是否可配置、是否可以删除这个属性
+    //enumerable: false：是否可枚举
+    //value: 3//value值
+    //writable: false//是否可修改
+    //(5)Object.keys():返回值是一个数组，里面放着所有的可枚举的属性
+    //(6)Object.values()：返回值是数组，放着所有可枚举属性的键值
+    //(7)Object.entries()：返回值是数组，每一项也是数组[键,值]
+
+    //三：对象的取值函数和设置函数
+    var obj = {
+        get name(){//通过Obj获取name属性就可触发这个函数,
+        //可以通过return返回值
+            console.log("1");
+            return "hahh";
+        },
+        set name(val){//通过Obj给name属性设置值就会触发这个函数
+            console.log("2");
+            obj.name = 
+        }
+    }
+    console.log(obj.name);
+    obj.name = "zhufeng";
+</script>
+</html>

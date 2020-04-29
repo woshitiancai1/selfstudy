@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Set()类似数组：只有值value，没有键,通过构造函数方式创建一个Set实例
+    //参数为数组或者类数组:数组、arguments、元素集合、Set、Map、字符串
+    //会默认去重
+    console.log(new Set([1,2,3]));
+    //size：表示实例的大小个数
+    //（1）add：增加之前没有的，有就不加，返回值为增加后的实例,可以实现链式写法
+    //参数一次只能增加一个，多了默认读取第一个
+    let set1 = new Set([1,2,"haha","null","NaN"]);
+    console.log(set1.add(3).add(10));//可以实现链式写法
+    //（2）delect：返回值为布尔值，删除成功则为true
+    console.log((set1.delete(1)));
+    //clear:表示清空，没有返回值
+    //has：判断有没有此项、
+    
+    //遍历的方法：
+    let set2 = new Set([1,2,'haha',null,NaN,ture]);
+    set2.forEach((...rest)=>{
+        console.log(rest);
+    })
+</script>
+</html>

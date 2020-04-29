@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Symbol是一个新的基本数据类型，而且是一个值类型
+    //Symbol数据类型跟字符串差不多，但是使用Symbol函数得到每一个数据是完全不同的
+    //Symbol()可以接收一个参数 是对Symbol数据的一个描述
+    //Symbol()值不可以跟其它值计算，不可以转换为数字类型，不可以转换为字符串类型
+    //Symbol():可以转换为布尔值
+    //一般当做对象的属性
+    let sym1 = Symbol();//得到一个Symbol数据类型
+    let sym2 = Symbol();
+    let obj = {
+        [sym1]:'zhufeng',
+    }
+    obj[sym2] = 'zhufeng',
+    console.log(obj);
+    //Symbol可以调用toString()方法变成显示字符串
+    console.log(Symbol('tiancai').toString);
+</script>
+</html>
