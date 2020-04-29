@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //一：Array类上的扩展
+    //Array：既是一个类，也是一个函数，返回一个数组
+    //Array(x,y,z);将参数变为数组返回
+    console.log(Array(1,2,3));//[1,2,3]
+    console.log(Array("a"));//[a]
+    console.log(Array(7));//如果只有一个参数并且参数是个数字，返回有n个空位的数组
+    Array.of();//解决了一个参数为数字的问题,其它和Array相同
+    console.log(Array.of(7));
+    //Array.from();返回一个数组
+    console.log(Array.from([1,2,3]));//[1,2,3]
+    console.log(Array.from(["123"]));//["1","2","3"]:将类数组变为数组
+
+
+    //二：数组原型上扩展的方法
+    //所有数组实例上的方法参数是从索引n-索引m，都是包含n不包含m
+
+    //（1）copyWithin:从原数组中读取内容，替换数组的指定位置的内容
+    //copyWithin(替换目标的起始位置target，查找的起始位置,查找的结束位置)
+    let array1 = [1,2,3,4,5,6,7,8];
+    console.log(array1.copyWithin(4,2,4));//[1,2,3,4,3,4,7,8]
+    //执行过程为：先找到索引号为4的数组元素为5，再找到索引号为2到索引号为4（包括2不包括4）
+    //的元素为3,4，有两个元素，所以会替换索引号为4的之后两个元素，会把5.6替换掉
+
+    //（2）fill：按照指定字符去填充数组的指定位置
+    console.log(array1.fill("zhufeng"));//将数组的每一项都替换成zhufeng,会修改原数组
+    console.log(array1.fill("nihao",3,6));//将索引号为3-6(包括3不包括6)的内容替换掉
+
+    //（3）filter：遍历数组，根据返回值去过滤原数组.原数组不变返回新的数组
+    let array3 = ["zhufeng",1,2,3,"zhufeng"];
+    var arr = array3.filter(function(item,index){
+        //如果返回true就留下当前项，返回false不留下当前项
+        return typeof item==='number'//留下数字项
+    })
+    console.log(arr);
+
+    //（4）find：先遍历数组，然后一旦参数函数返回true，停止查找返回当前项的值
+    let a = array3.find(function(item){
+        return item == 2;//item为要查找的那个数
+    })
+    console.log(a);
+
+    //(5)findIndex：返回当前项的索引
+    let b = array3.findIndex(function(item){
+        return item==2;
+    })
+    console.log(b);
+
+    //（6）every：遍历数组，如果遍历每一项都返回true，最后结果为true
+    //只要有一个为false，结果为false
+    console.log([1,2,3,4,5].every(function(item){
+        return typeof item == 'number';
+    }))
+
+    //(7)some：遍历数组，只要里面有一项为true，结果为true
+    //全为false，结果为false
+
+    //（8）reduce：迭代
+    let array4 = [1,2,3,4,5];
+    console.log(array4.reduce(function(prev,item){
+        //prev为前一项的返回值
+        return prev+item;//对数组进行求和
+    },10))//设置默认的prev的值
+
+    //(9)reduceRight和reduce道理相同，只是顺序从右边开始
+
+    //(10)keys:用来遍历每一项的一个接口可以使用for of遍历,得到索引值
+    let array5 = [1,2,3];
+    for(let key of array5.keys()){
+        console.log(key);//key得到的是数组每一项的索引
+    }
+
+    //(11)entries:可以遍历到数组的索引和每一项
+    //每次遍历得到一个数组，数组内是索引值和当前项
+    for(let [index,item] of array5.entries()){//数组的解构赋值获取到遍历的结果
+        console.log(index,item);
+    }
+</script>
+</html>

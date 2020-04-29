@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //箭头函数都是匿名函数
+    let fn = (形参) => {
+        函数体
+    }
+    //通常函数当做参数的时候，使用箭头函数
+    let ary = ["zhufeng",1,2,3,4,5];
+    var arr = ary.filter((item)=>{
+        return typeof item == 'number'
+    })
+    console.log(arr);
+
+    //箭头函数有几个特点：
+    //1.箭头函数没有this指向，里面的this是上一级的作用域下的this
+    let obj = {
+        name:"xue",
+        fn:function(){
+            let f=()=>{
+                console.log(this.name);//箭头函数里面是没有this的，需要到它的上一级也就是
+                //fn里边寻找this.fn里面的this指向fn的调用者obj.所以，这里的this指向
+                //的是obj
+            }
+            f();
+        }
+    }
+    obj.fn();
+    //箭头函数没有arguments
+    let f1 = (...arg) => {//...arg会把传过来的参数转化为数组进行接收
+        console.log(arg);//[1,2,3,4];
+    }
+    f1(1,2,3,4);
+    //3.箭头函数不可以用作构造函数,因为不可以使用new执行
+    
+</script>   
+</html>

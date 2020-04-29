@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //一：函数参数的问题:
+    function fn(x="zhufeng",y="ES6"){//设置参数默认值
+        
+    }
+    //参数使用解构赋值:
+    function fn1({name="zhufeng",age=20}={}){
+        console.log(name,age);
+    }
+    function fn2(x,y){
+
+    }
+    fn2(1,2);
+    console.log(fn2.length);//2函数的length属性为行参数的个数，如果形参有默认值就会失真
+    //length就会变成没有设置默认值的形参的额个数
+
+    //参数默认值位置:一般参数的默认值放在最后边
+    function fn3(x=20,y=10){
+
+    }
+
+    //arguments：类数组
+    function fn4(...args){
+        console.log(arguments);//得到的是对象
+        console.log(args);//得到的是数组
+    }   
+    fn4(1,2,3,4,5);
+
+    //二：函数name问题
+    function fn11(){}
+    //1.特殊情况：通过bind方法得到一个新的函数name是：bind 原来函数的名字
+    let fn12 = fn11.bind(null);
+    console.log(fn12.name);
+    //2.构造函数方式创建一个函数:new Function("形参","函数体");
+    let fn22 = new Function("x,y","console.log(x,y);return x+y");
+    console.log(fn22(10,100));
+    console.log(fn22.name);//anonymous匿名的意思
+
+    //参数作用域问题
+    let m=10,n=100;
+    function fn5(x=m,y=n){//这里给形参赋值的时候，先看调用的时候有没有传参，如果没有
+        console.log(x);   //再到全局中去寻找m和n的值
+        console.log(y);
+        let m = 'zhufeng';//给形参x,y赋值的时候，这里的m和n还没有声明
+        let n = 'ES6';
+    }
+    fn5(1);
+    let x=100;
+    function fn6(x,y=x){//如果给形参的默认值是一个变量，先看是不是自己的私有变量
+    //不是私有的就在全局中找，没找到就报错
+    //这里参数调用的时候会传入一个参数，所以形参x的值为1。所以，y=x=1。如果这里x
+    //没有值的话，才会去全局找x=100
+        
+    }
+    fn6(1);
+</script>
+</html>

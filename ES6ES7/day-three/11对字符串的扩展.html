@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //一：字符串原型上扩展的方法
+    //1.includes:返回值为布尔值,判断字符串中有没有指定字符
+    //include("指定字符",开始查找的位置(索引号))
+    let str = "abcdefg12345";
+    console.log(str.includes("a",2));
+
+    //2.startsWith(),endsWith()：判断指定字符串是不是以指定字符开头和结尾
+    //startsWith("指定字符",开始查找的位置(索引号))
+    console.log(str.startsWith("a"));
+    //endsWith("指定字符",num);num指的是从前num个中查看
+    console.log(str.endsWith("d",3));
+
+    //3.repeat:重复
+    //repeat(num)：将字符串重复num次，num必须取整，不可以是负数或者是infinity(无穷)
+    console.log(str.repeat(2));
+
+    //4.padStart()、padEnd() :ES7中的方法
+    //按照指定字符补全字符串的指定长度
+    //padStart(length,"指定字符");
+    let str1 = "ab";
+    console.log(str1.padStart(5,"g"));//gggab：g在字符串的前边
+    console.log(str1.padEnd(7,"ghk"));//往后补
+
+    //二：模板字符串
+    //跟普通字符串一样使用，但是它可以添加变量${}
+    let str2 = `hahah`;
+    let num = 1;
+    console.log()
+</script>
+</html>

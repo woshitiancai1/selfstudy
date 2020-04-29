@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //数组的空位：数组的某个索引位置没有空位，undefined不是空位
+    //判断一个数组中某一个位置是不是空位用in方法
+    let arr = [,,,,,];
+    console.log(arr.length);
+    console.log(1 in arr);//索引为1的位置没有值，为空位
+    //ES6中会将空位处理为undefined
+
+    //得到一个有7个1的数组
+    Array(7).fill(1);
+</script>
+</html>
