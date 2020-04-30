@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    function loadImg(url){
+        return Promise((resolve,reject)=>{
+            let img = new Image();
+            img.src = url;
+            img.onload = function(){
+                resolve(img);
+            }
+            img.error = function(e){
+                reject(e);
+            }
+        })
+    }
+    loadImg('https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3509706518,3265021170&fm=26&gp=0.jpg')
+    .then((img)=>{
+        box.appendChild(img);
+    },(e)=>{
+        console.log(e);
+    })
+</script>
+</html>
