@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class A {
+        constructor(name){
+            this.name = name;//增加私有属性
+        }
+    }
+    let a = new A("xue");//类必须使用new执行，不可以当做普通函数执行
+    console.log(a.name);
+    console.log(typeof A);//function
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //对对象默认操作的拦截/改写
+    //new Proxy({目标对象},{拦截的方法})
+    let obj = {
+        name:'zhufeng',
+        age:10
+    }
+    let proxy1 = new Proxy(obj,{//相当于是proxy1代理了obj这个对象
+        get(){//get方法，只要是获取操作就会触发
+            return 'nihao'//这里return什么，就会打印什么
+        }
+    });
+    console.log(proxy1.name);//会触发get函数
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //async函数默认返回一个Promise对象
+    async function getA(){
+        await p;//await后面是一个Promise实例
+        //直接让Promise实例的回调函数执行，返回执行时的参数
+        //等await后面的异步完成之后，再去执行后面的代码
+
+        //如果这里有错误，就会被catch捕获到
+        throw new Error("sorry");
+        //return出来的内容就是成功回调的参数
+        return 'zhufeng'
+    }
+    getA().then((res)=>{//成功的时候执行的函数
+        console.log(res);//zhufeng
+    }).catch((e)=>{//失败的时候执行的函数   
+        console.log(e);
+    })
+    let p = new Promise((resolve,reject)=>{
+        resolve("珠峰");
+    })
+
+</script>
+</html>
