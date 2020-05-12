@@ -1,4 +1,5 @@
-HTML与CSS + H5与CSS3  
+HTML与CSS + H5与CSS3    
+  
 一：认识web  
 1.网页主要由图片、连接、文字等元素组成，还包括音频和视频。  
 2.浏览器是网页显示、运行的平台。  
@@ -20,20 +21,20 @@ HTML与CSS + H5与CSS3
 （2）可以从一个文件跳转到另一个文件，与世界各地主机的文件相连（超级链接文本）  
 
 三：骨架  
-<!-- <!DOCTYPE html>表明使用的html5版本号 -->
+<!DOCTYPE html>表明使用的html5版本号
 <!DOCTYPE html>
-<!-- lang="en"表明所使用的html语言类型为english -->
+ lang="en"表明所使用的html语言类型为english
 <html lang="en">
-    <!-- html为根标签 -->
-    <!-- head为文档的头部 -->
+    html为根标签
+     head为文档的头部
 <head>
-    <!-- charset="UTF-8"：表明html文件以UTF-8编码保存， -->
+    charset="UTF-8"：表明html文件以UTF-8编码保存，
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- title写文档的标题 -->
+     title写文档的标题
     <title>Document</title>
 </head>
 <body>
-    <!-- body为文档的主体部分 -->
+    body为文档的主体部分
 </body>
 </html>
