@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1.table表格用来展示数据,tr标签为行，td标签为每一行的单元格 -->
+    <!-- 2.th为表头单元格，一般用在第一行或者第一列，单元格中的内容会居中并且加粗 -->
+    <!-- 3.caption为表格标题标签 -->
+    <!-- 4.rowspan跨行合并单元格，先找到目标单元格，然后删掉被合并单元格 -->
+    <!-- 5.colspan跨列合并单元格，与rowspan同理 -->
+    <table border="2" width="300" height="300" cellspacing="0" cellpadding="20" align="center">
+        <caption>个人信息表</caption>
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <!-- 目标单元格 -->
+                <th rowspan="2">4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <!-- 被合并单元格 -->
+                <!-- <td>4</td> -->
+            </tr>
+            <tr>
+                <td colspan="3">1</td>
+                <!-- <td>2</td>
+                <td>3</td> -->
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
+    5.表格的属性:
+    (1)border:设置表格的边框的宽度,默认为0
+    (2)width、height：设置表格的宽高
+    (3)align：设置表格在网页中的对齐方式
+    (4)cellspacing：设置单元格与单元格之间的距离
+    (5)cellpadding:设置单元格的内容和单元格之间的距离
+</body>
+
+</html>
