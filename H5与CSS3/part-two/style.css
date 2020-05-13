@@ -1,0 +1,43 @@
+/* 这里的 input 为标签选择器 */
+input{
+    /* 设置input框的默认value的颜色 */
+    /* color:red;构成一个声明，这个声明由属性名和属性值组成 */
+    color:red;
+}
+/* 这里的 . 为类选择器 */
+.input1{
+
+}
+.input2{
+
+}
+/* 这里的 # 为id选择器 */
+#input1{
+
+}
+/* 这里的 * 为通配符选择器 */
+*{
+
+}
+/* css选择器的作用：找到特定的HTML元素 */
+
+/* 
+font-family:用于设置字体，可以指定多个字体，如果浏览器不支持第一个则会默认向后寻找
+font-weight（设置字体粗细）：normal、bold（加粗）、数值是100-900的整百值（无单位）
+font-style（设置字体风格）：normal、italic（倾斜）
+font-size(字体大小)：数字设置有单位
+fort:font-style font-weight font-size font-family
+
+line-height（设置行高）：一般用于段落标签p标签中，大小比字体大小大7-8像素即可
+text-indent（首行文本的缩进）：2em（缩进两个字符）
+text-decoration（文本装饰）：none（默认无）、blink（闪烁）、underline（下划线）
+                            line-through（贯穿线）、overline（上划线）
+letter-spacing（定义字符与字符之间的间距）
+word-spacing（定义英文单词之间的间距，对中文无效）
+*/
+p{
+    height: 400px;
+    background-color: red;
+    font-size: 20px;
+    line-height: 28px;
+}

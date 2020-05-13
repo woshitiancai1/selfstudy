@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 后代选择器 */
+        .nav a{
+            color:red;
+        }
+        div strong{
+            color:red;
+        }
+        /* 子代选择器 */
+        div>strong{
+            color:green;
+        }
+        /* 交集选择器 */
+        p.red{
+            color:blue;
+        }
+        /* 并集选择器 */
+        p,div,.red{
+
+        }
+
+        /* 伪类选择器 */
+        /* 一：超链接伪类选择器 */
+        a{
+            /* 去掉a标签默认的下划线 */
+            text-decoration: none;
+        }
+        /* a:link{}:对未被访问的a标签设置样式 */
+        /* a:visited{}:对访问过的a标签设置样式 */
+        /* a:hover{}:当鼠标移动到a标签上时设置样式 */
+        /* a:active{}:当a标签被点击时设置样式 */
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+    </div>
+
+    <div>
+        <strong>son</strong>
+        <strong>son</strong>
+    </div>
+    <div>
+        <p>
+            <strong>sunzi</strong>
+            <strong>sunzi</strong>
+        </p>
+    </div>
+
+    <p class="red"></p>
+    <p class="red"></p>
+    <div class="red"></div>
+    <div class="red"></div>
+</body>
+</html>
