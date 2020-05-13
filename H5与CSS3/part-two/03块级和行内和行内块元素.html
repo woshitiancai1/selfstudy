@@ -4,11 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        a{
+            display: inline-block;
+            width: 100px;
+            height: 60px;
+            background-color: aquamarine;
+            text-decoration: none;
+            text-align: center;
+            line-height: 60px;
+        }
+        a:hover{
+            background-color: chartreuse;
+        }
+    </style>
 </head>
 <body>
     <!-- 1.常见的块级元素：h1-h6,p,dt,ul,ol,li,div div是最典型的块级元素-->
     <!-- p,h1-h6,dt标签里不能放块级元素特别是div -->
 
-    
+    <!-- 2.常见的行内元素：a，span  span标签是最典型的行内元素，行内元素不能设置宽高 -->
+    <!-- 行内元素只能写文本或者其它文本元素，一行可以放多个 -->
+    <!-- a标签里面不能再放a标签 -->
+    <!-- a标签在特殊情况下可以放块级元素 -->
+
+    <!-- 3.行内块元素：img、input、td：是行内元素，但是可以设置宽高 -->
+
+    <!-- 4.标签显示模式转换：display -->
+    <!-- （1）.display:inline;块级元素转行内元素 -->
+    <!-- （2）.display:block;行内元素转块级元素，-->
+    <!-- （3）.display:inline-block;块级和行内元素转化为行内块元素 用于a标签 -->
+    <a href="#">体育</a>
+    <a href="#">娱乐</a>
+    <a href="#">汽车</a>
+
+    <!-- 5.line-height:实现单行文字垂直居中：文字的行高等于盒子的高度 -->
+
 </body>
 </html>
