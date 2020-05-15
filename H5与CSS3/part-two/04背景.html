@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg{
+            width: 800px;
+            height: 500px;
+            background-color: pink;
+            /* 背景图片 */
+            background-image: url(./images/1.png);
+            /* 背景位置 */
+            /* background-position: x坐标,y坐标; */
+            /* background-position: right,top;等方位名词 */
+            /* background-position: center,center;背景图在盒子内水平垂直居中 */
+            /* 如果只指定了一个方位,另一个默认居中对齐 */
+            /* 如果只指定了一个数值,必定是x坐标,y坐标默认居中对齐 */
+        }
+        body{
+            /* 以下为超大背景图片的写法 背景定位 */
+            background-image: url(./images/1.png);
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+
+        /* 背景附着：background-attachment */
+        /* 1.scroll:背景图像随对象内容而混动 */
+        /* 2.fixed：背景图像固定（图像上的其它内容会滚动，但是背景图不会滚动） */
+
+        /* 背景缩写：background: #eee url() no-reapeat fixed center top  */
+
+        /* 背景透明： */
+        .alpha{
+            width: 300px;
+            height: 300px;
+            /* alpha为透明度的意思，取值范围为0-1 */
+            background:rgba(red, green, blue, 0.5) ;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        aaa
+    </div>
+    <div class="alpha">
+
+    </div>
+</body>
+</html>

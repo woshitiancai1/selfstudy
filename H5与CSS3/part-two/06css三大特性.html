@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.css样式的层叠性：样式不冲突不会层叠 */
+        div{
+            color:red;
+        }
+        /* 后面的样式会覆盖掉前面的样式 */
+        div{
+            color:pink;
+        }
+        .one{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        我就是天才!
+        <!-- 2.css样式的继承性：这里p元素的样式会继承div的样式 -->
+        <p>
+            xuemingxing
+        </p>
+    </div>
+    <!-- 3.css样式的优先级：
+    行内样式 > id选择器 > （伪）类选择器 > 标签选择器 > 继承或者*
+    继承的权重为0 -->
+    <div class="one">
+        aaaaaa
+    </div>
+</body>
+</html>
