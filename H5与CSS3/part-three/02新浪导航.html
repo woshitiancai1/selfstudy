@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ps量高度时不要算边框，就算内容所占的高度 */
+        .nav{
+            background-color: #fcfcfc;
+            height: 40px;
+            border-top: 3px solid pink;
+            border-bottom: 1px solid gray;
+        }
+        .nav a{
+            display: inline-block; 
+            text-decoration: none;
+            height: 40px;
+            line-height: 40px;
+            padding:0 30px;
+            color:black
+        }
+        .nav a:hover{
+            background-color: pink;
+        }
+
+        /* 盒子的实际大小 = 内容的宽高 + 内边距(左右或上下) + border-width */
+        /* 解决方法： */
+        .nav-a{
+            width: 178px;
+            height: 178px;
+            padding:20px;
+            border:1px solid red;
+        }
+        /* 这样写出来的盒子的实际宽高才是220px */
+
+        .p1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .p1 p{
+            width: 170px;
+            height: 30px;
+            background-color: blue;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#">11111</a>
+        <a href="#">2</a>
+        <a href="#">3111</a>
+        <a href="#">4</a>
+        <a href="#">52</a>
+        <a href="#">63333333</a>
+    </div>
+
+    <div class="nav-a"> 
+        
+    </div>
+    <div class="p1">
+        <p>dadada</p>
+    </div>
+</body>
+</html>

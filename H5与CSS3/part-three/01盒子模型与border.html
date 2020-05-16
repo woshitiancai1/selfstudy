@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        1.盒子边框border：width style color;
+        style:dashed(虚线边框)、solid（实线边框）、dotted（边框为点线）
+        2.分别指定上下左右的边框的样式:
+        border-top:
+        border-left:
+        border-right:
+        border-bottom:
+        */
+        input{
+            border:none;
+            border-bottom: 1px dashed red;
+        }
+        /* 合并相邻边框 */
+        table,td,th{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1.padding:内边距。（合起来设置时顺序为：上 右 下 左 顺时针）
+        （1）指的是盒子里面的内容和盒子边界之间的距离 
+        （2）设置padding值后盒子会变大
+        （3）padding:20px;指的是上下左右的内边距均为20px
+             padding:10px 20px;指的是上下10 左右20的内边距
+             padding:10px 20px 30px;指的是上10 左右是20 下是30的内边距
+    -->
+    <!-- 2.margin：外边距。指的是盒子与盒子之间的距离。 -->
+    <input type="text"/>
+</body>
+</html>
