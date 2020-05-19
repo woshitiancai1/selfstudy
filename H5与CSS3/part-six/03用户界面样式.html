@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            outline: none;
+            width: 200px;
+            height: 200px;
+            border:1px solid blue;
+            resize: none;
+        }
+        /* resize: none;防止textarea框可被拖拽 */
+    </style>
+</head>
+<body>
+    <!-- 鼠标的样式: -->
+    <ul>
+        <li style="cursor: default;">默认样式</li>
+        <li style="cursor: pointer;">小手</li>
+        <li style="cursor: move;">移动</li>
+        <li style="cursor: text;">文本效果</li>
+        <li style="cursor: not-allowed;">禁止</li>
+    </ul>
+
+    <!-- 轮廓线：直接设置outline:none就OK -->
+    <input type="text" style="outline:none;"/>
+
+    <textarea></textarea>
+</body>
+</html>

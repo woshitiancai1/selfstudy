@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            border:2px solid #ccc;
+            float: left;
+            /* margin-left: -px;可以压住盒子相邻边框
+            margin-left: -2px;这个具体的负值为边框的宽度
+            利用这个margin负值，可以去掉边框叠加所产生的叠加部分比较粗的问题 */
+            margin-left: -2px;
+        }
+        div:hover {
+            /* z-index: 10;只有在加了定位的盒子才会有作用 */
+            border:2px solid #f40;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border:1px solid red;
+        }
+        /* vertical-align: bottom;设置图片和文字的底线对齐，就不会有缝隙
+        或者顶线、居中对齐（middle）都有可以 */
+        /* 或者display: block;把图片转化为块级元素也可以去掉底部缝隙  */
+        div img {
+            /* vertical-align: bottom; */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./1.jpg"/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mask {
+            position: absolute;
+            width: 500px;
+            height: 635px;
+            background: rgba(0 ,0, 0, 0.3);
+            left:0;
+            top:0;
+            display: none;
+        }
+        .box:hover .mask {
+            display: block;
+        }
+        .box {
+            width: 500px;
+            height: 635px;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="mask"></div>
+        <img src="./1.jpg" alt=""/>
+    </div>
+</body>
+</html>

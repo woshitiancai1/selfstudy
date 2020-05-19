@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* display: */
+        /* display: none;用来隐藏元素，被隐藏的元素不会占有原来的位置 */
+        /* display: block;除了把元素转化为块级元素之外，还可以显示被隐藏的元素 */
+
+        /* visibility:visible(对象可见)、hidden(对象隐藏) */
+        /*  visibility:hidden元素被隐藏，被隐藏的元素还占有原来的位置 */
+
+        .damao {
+            display: none;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .ermao {
+            width: 250px;
+            height: 250px;
+            background-color: green;
+        }
+
+        /* overflow: hidden;超出盒子大小的部分隐藏 */
+        /* overflow: auto;超出自动显示滚动条，不超出则不显示滚动条（少用） */
+        .box {
+            width: 150px;
+            height: 150px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="damao"></div>
+    <div class="ermao"></div>
+    <div class="box">
+        aaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaa
+    </div>
+</body>
+</html>
