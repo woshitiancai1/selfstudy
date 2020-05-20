@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            /* transform-origin: center center;设置缩放的中心点 */
+            transform-origin: center center;
+        }
+        
+        div:hover {
+            /* transform: scale(x,y);控制元素缩放的大小 */
+            /* transform: scale(1.5, 1.5) */
+            transform: scale(0.5, 0.5)
+        }
+        /* scale不会影响其它盒子，而且可以设置中心点 */
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+        /* 
+        ::before    ::after （用的非常多）
+        在DOM看不见这两个元素，所以称为伪元素，权重为1
+        在元素内部的前面或者后面插入元素
+        before、after必须具有content属性
+        before、after会创建一个行内元素
+        */
+        
+        div::before {
+            content: "我";
+        }
+        
+        div::after {
+            content: "薛明星";
+        }
+    </style>
+</head>
+
+<body>
+    <div>是</div>
+</body>
+
+</html>

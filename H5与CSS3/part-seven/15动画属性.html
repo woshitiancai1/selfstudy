@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 动画序列 */
+        
+        @keyframes move1 {
+            from {
+                transform: translateX(0px);
+            }
+            to {
+                transform: translateX(1000px);
+            }
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 调用动画的名称 */
+            animation-name: move1;
+            /* 调用动画的持续时间 */
+            animation-duration: 6s;
+            /* 动画的速度曲线 
+            默认为ease：以低速开始，然后加快，在结束前变慢
+            linear:匀速
+            ease-in：动画以低速开始
+            ease-out：动画以低速结束
+            ease-in-out：动画以低速开始和结束
+            step():之间函数中的间隔数量*/
+            animation-timing-function: ease;
+            /* 规定动画何时开始，默认0s */
+            animation-delay: 1s;
+            /* 规定动画重复播放的次数  infinite:为无限循环 */
+            animation-iteration-count: 3;
+            /* 是否反方向播放 ：默认为normal，alternate:为反方向播放*/
+            animation-direction: alternate;
+            /* 动画结束后的状态：默认为backwards：回到起始状态 */
+            /* forwards：为在结束位置停止不返回 */
+            animation-fill-mode: forwards;
+            /* 动画属性的简写 */
+            /* animation: 动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 动画起始或者结束状态; */
+        }
+        
+        div:hover {
+            /* 播放的状态：默认为running：一直播放动画 */
+            /* pause：为动画停止 */
+            animation-play-state: running;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

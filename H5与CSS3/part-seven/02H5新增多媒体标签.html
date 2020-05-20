@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 音频标签:audio -->
+    <audio src="文件地址" controls="controls"></audio>
+    <!-- 
+        audio属性：
+        （1）autoplay:音频在就绪后马上播放（自动播放）
+        （2）controls:向用户显示控件，比如播放按钮
+        （3）loop:音频结束后重新开始播放
+        （4）src：要播放的音频的地址
+    -->
+    <!-- 因为不同的浏览器支持不同的格式，所以我们要为这个音频准备多个格式 -->
+    <audio controls="controls">
+        <source src="happy.mp3" type="audio/mpeg">
+        <source src="happy.ogg" type="audio/ogg">
+    </audio>
+
+    <!-- 视频标签:video -->
+    <video src="文件地址" controls="controls"></video>
+    <!-- 
+        video:属性
+        （1）autoplay:视频在就绪后马上播放（自动播放）
+        （2）controls:向用户显示控件，比如播放按钮（视频少用）
+        （3）loop:视频结束后重新开始播放
+        （4）src：要播放的视频的地址
+        （5）width、height:可以设置视频的宽高
+        （6）muted:静音播放(在谷歌浏览器加上这个属性就可以使用autoplay属性了)
+        （7）poster：加载等待的画面图片（没有autoplay属性时可以添加这个属性）
+    -->
+    <!-- 因为不同的浏览器支持不同的格式，所以我们要为这个视频准备多个格式 -->
+    <vedio controls="controls">
+        <source src="happy.mp4" type=vedio/mpeg ">
+        <source src="happy.ogg " type="vedio/ogg ">
+    </vedio>
+</body>
+
+</html>

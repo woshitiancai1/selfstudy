@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        结构伪类选择器 ：
+        （1）E:first-child:选取父元素中的第一个子元素
+        （2）E:last-child:选取父元素中的最后一个子元素
+        （3）E:nth-child(n):选取父元素中的第n个子元素
+         n：可以是数字，关键字或者公式，例如：2n+1、5n+1
+         odd:奇数
+         even:偶数
+         2n+1：为奇数、n+5：从第五个元素开始
+         2n：为偶数、-n+5：选取前五个元素
+        （4）E:first-of-type:指定类型的第一个
+        （5）E:last-of-type:指定类型的最后一个
+        （6）E:nth-of-type(n):指定类型的第n个
+        */
+        
+        ul li:first-child {
+            background-color: pink;
+        }
+        
+        ul li:last-child {
+            background-color: green;
+        }
+        
+        ul li:nth-child(odd) {
+            list-style: none;
+        }
+        
+        ul li:nth-child(6) {
+            background-color: red;
+        }
+        /* 选取第6个元素 */
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+</body>
+
+</html>
