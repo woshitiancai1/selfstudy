@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    //JS是动态的弱类型语言，变量的数据类型是可以变化的
+    // var x = 10;
+    // x = "pink";
+
+    //JS数据类型的分类
+    //简单数据类型：Number,String,Boolean,Undefined,Null
+    //复杂数据类型:
+    //(1)Number可以包含整数和小数，NaN表示不是一个数字，Infinity：去穷大，-Infinity：去穷大
+    //isNaN()：这个方法用来判断是否是数字，如果是数字返回false，佛足额返回true
+    //（2）String:\n用来换行，\b用来输入空格
+    var str = "我是一个'高富帅'\n的程序员";
+    //字符串 + 任何类型 = 拼接之后的字符串
+    var age = 18;
+    console.log('薛明星' + age + '岁'); //薛明星18岁
+
+    //交互编程的三要素：用户输入，程序内部处理、输出结果
+
+    //如果一个变量声明未赋值，则为undefined
+    console.log(undefined + 1); //NaN
+    console.log(null + 1); //1
+    console.log(typeof null); //Object
+
+    var age = prompt("请输入年龄");
+    console.log(typeof age); //string
+</script>
+
+</html>
