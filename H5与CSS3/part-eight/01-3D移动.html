@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* perspective透视需要写在被观察元素的父盒子上面 */
+            perspective: 800px;
+            /* 数值越小，图片离我们越近，效果越大（近大远小） */
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* transform: translate(100px, 100px) translateZ(100px); */
+            /* translateZ(100px)后面的单位一般是px */
+            /* translateZ(100px)数值为正，是向屏幕外移动 */
+            transform: translate3d(400px, 400px, 100px);
+        }
+        /* 在网页中产生3D立体效果，需要透视 */
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+
+</html>
