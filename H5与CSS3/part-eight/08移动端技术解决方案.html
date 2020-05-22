@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* box-sizing: border-box;表明让盒子变成CSS3盒模型 */
+            /* 有了这句话padding和border就不会撑大盒子了 */
+            box-sizing: border-box;
+            width: 500px;
+            height: 500px;
+            background-color: purple;
+            padding: 10px;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        一：移动端浏览器：
+        移动端浏览器基本以webkit为内核，因此我们就考虑webkit兼容问题，
+        2.CSS3盒模型：width包含border和padding，不涉及到计算
+
+    -->
+    <!-- 
+        二：移动端布局常见技术选型：
+        1.单独制作移动端页面（主流）
+        （1）流式布局（百分比布局）（2）flex弹性布局（强烈推荐）
+        （3）less+rem+媒体查询布局（4）混合布局
+        2.响应式页面兼容移动端：
+        （1）媒体查询（2）bootstarp
+     -->
+    <div></div>
+</body>
+
+</html>

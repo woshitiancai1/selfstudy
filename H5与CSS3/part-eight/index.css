@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 去除图片的缝隙 */
+
+img {
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    color: #666;
+}
+
+.app {
+    height: 45px;
+    width: 100%;
+}
+
+.app ul li {
+    background-color: #333;
+    height: 45px;
+    float: left;
+    text-align: center;
+    line-height: 45px;
+}
+
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+
+.app ul li:nth-child(1) img {
+    width: 10px;
+}
+
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+
+.app ul li:nth-child(2) img {
+    width: 30px;
+    /* vertical-align: middle;让图片和文字居中对齐
+    一般有行内块元素都会加这一句话 */
+    vertical-align: middle;
+}
+
+.app ul li:nth-child(3) {
+    width: 57%;
+    color: white;
+}
+
+.app ul li:nth-child(4) {
+    width: 25%;
+    background-color: #F63515;
+    color: white;
+}
+
+
+/* search start */
+
+.search-wrap {
+    height: 44px;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+}
+
+.search-btn {
+    /* position: absolute;绝对定位的盒子不占用文档原来的位置 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 44px;
+    background-color: pink;
+}
+
+.search {
+    height: 30px;
+    background-color: skyblue;
+    /* margin-top:7px;会把父元素给带下来，需要给父元素加上overflow: hidden; */
+    margin: 7px 50px;
+    border-radius: 15px;
+}
+
+
+/* 二倍精灵图的做法
+（1）在PS里面把精灵图缩放为原来的一半 
+（2）之后根据大小测量坐标:background-position:-100px -100px; 
+（3）代码里面的background-size:精灵图原来宽度的一半 auto */
+
+.search-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 44px;
+    background-color: pink;
+}
+
+.brand {
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    height: 200px;
+    background-color: blue;
+}
+
+.brand div {
+    width: 33.33%;
+    float: left;
+}
+
+.brand div img {
+    width: 100%;
+}
+
+nav a {
+    width: 20%;
+    float: left;
+}
