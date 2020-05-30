@@ -1,0 +1,19 @@
+body {
+  background-color: pink;
+}
+.header {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+.header a {
+  color: red;
+}
+.header a:hover {
+  color: green;
+}
+div {
+  width: 150px;
+  height: 200px;
+  border: 10px solid red;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        @media screen and (min-width:320px) and (max-width:639px) {
+            html {
+                font-size: 50px;
+            }
+        }
+        
+        @media screen and (min-width:640px) {
+            html {
+                font-size: 100px;
+            }
+        }
+        
+        .top {
+            height: 1rem;
+            font-size: 0.5rem;
+            background-color: green;
+            color: #fff;
+            line-height: 1rem;
+            text-align: center;
+        }
+        /* 
+        引入资源：根据不同的媒体宽度使用不同的样式表，原理就是在link中判断设备的尺寸，
+        然后引用不同的css文件
+        */
+    </style>
+    <link rel="stylesheet" href="./style320.css" media="screen and (min-width:320px) and (max-width:639px)">
+    <link rel="stylesheet" href="./style640.css" media="screen and (min-width:640px)">
+</head>
+
+<body>
+    <!-- <div class="top">
+        购物车
+    </div> -->
+    <div>1</div>
+    <div>2</div>
+</body>
+
+</html>

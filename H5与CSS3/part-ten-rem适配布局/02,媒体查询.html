@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        媒体查询（Media Query）:
+        1.使用@media查询，可以针对不同的媒体类型定义不同的样式
+        @media可以针对不同的屏幕尺寸设置不同的样式
+
+        2.mediatype查询类型:将不同的终端设备划分为不同的类型，称为媒体类型。
+        （1）all：用于所有媒体设备  （2）print：用于打印机和打印预览
+        （3）screen：用于电脑屏幕，平板电脑，智能手机等
+
+        3.关键字：关键字将媒体类型或者多个媒体类型特性连接到一起作为媒体查询的条件
+        （1）and：可以将多个媒体类型连接到一起（2）not：排除某个媒体类型
+        （3）only：指定某个特定的媒体类型
+
+        4.，媒体特性：
+        width：定义输出设备中页面可见区域的宽度
+        max-width：定义输出设备中页面最大可见区域的宽度
+        min-width：定义输出设备中页面最小可见区域的宽度
+
+        5.媒体查询从小到大写
+        */
+        /* 在我屏幕上并且最大宽度为800px*/
+        
+        @media screen and (min-width: 970px) {
+            body {
+                background-color: pink;
+            }
+        }
+        
+        @media screen and (min-width:540px) and (max-width: 969px) {
+            body {
+                background-color: green;
+            }
+        }
+        
+        @media screen and (max-width: 539px) {
+            body {
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

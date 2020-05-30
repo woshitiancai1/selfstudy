@@ -1,0 +1,39 @@
+// Less是一门css扩展语言，也成为css预处理器，作为css的一种形式的扩展
+//Less在css的基础上，引入了变量，混入，运算以及函数等功能
+
+// Less安装：（1）安装Node（2）安装Less：npm install -g less   lessc -v查看版本
+//Less的编译：在VS Code中下载Easy LESS插件，用来把less文件编译为css文件
+//定义一个粉色的变量
+@color:pink;
+body {
+    background-color: @color;
+}
+
+// Less的嵌套
+// 后代选择器
+.header {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    a {
+        color:red;
+        //伪类选择器
+        &:hover{
+            color:green;
+        }
+    }
+}
+.header1{
+    .nav{
+
+    }
+}
+
+//Less的运算
+@border:5px + 5;//运算符的左右两侧必须敲一个空格隔开
+div {
+    width: 200px - 50;//如果一个数有单位，则结果以这个单位为单位
+    height: 200px;
+    border:@border solid red;
+}
+//如果两个数都有单位且单位不同，最后的单位以第一个数的单位为单位
