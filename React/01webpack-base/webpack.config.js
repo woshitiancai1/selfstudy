@@ -6,3 +6,6 @@ module.exports = {
     //目的是尽量减少配置文件的体积
     //打包的输出文件未dist目录下面的main.js
 }
+
+//export default{}为ES6中导出模块的API，不是Node的API，
+//与之对应的是import ** from '文件路径'
