@@ -1,3 +1,8 @@
-console.log("薛明星是天才,hhah");
-//webpack-dev-server打包好的main.js是托管到了内存中，所以在项目根目录中看不到。
-//但是我们可以认为，在项目的根目录中有一个看不见的main.js
+//1.导入包
+import React from 'react'
+import ReactDom from 'react-dom'
+
+const a = 10;
+
+//3.调用render函数
+ReactDOM.render( < div > < /div> , document.getElementById("app"))
