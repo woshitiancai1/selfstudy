@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <ul>
+            <li v-for="(item,index) in movies">{{item}}...{{index}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    //let定义变量，const定义常量
+    let name = "zhangsan";
+    name = 'lisi';//let定义的变量可以修改
+    const name1 = "xue";
+    //name1 = "xueming";错误：const定义的常量不可以修改
+    const app = new Vue({//声明式编程,这里创建了一个Vue实例
+        el:'#app',//用于挂载要管理的元素
+        data: {//定义数据
+            msg:'薛明星是天才',
+            movies:[
+                '大话西游','倩女幽魂','雪山飞狐','射雕英雄传','神雕侠侣'
+            ]
+        },
+        methods: {//定义方法    
+            
+        },
+    })
+</script>
+</html>
