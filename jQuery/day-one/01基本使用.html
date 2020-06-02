@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    <input type="text" id="username"/>
+    <button id="btn2">确定(jQuery版)</button>
+</body>
+<script>
+    $(function(){//表明是在页面加载完成后执行jQuery代码
+        // 这里的$('#btn2')就是一个jQuery对象
+        $('#btn2').click(function(){//id选择器绑定监听
+            var username = $("#username").val();
+            console.log(username);
+        })
+    })
+</script>
+</html>
