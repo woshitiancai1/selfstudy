@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    <p>这是一个p标签</p>
+    <div>这是一个div</div>
+</body>
+<script>
+    $("p").appendTo("div");//把p标签插入到div标签内
+    //遍历并输出数组中所有的元素
+    var arr = [1,2,3,4,5,6,7];
+    $.each(arr,function(index,item){
+        console.log(index,item);
+    })
+    //去掉字符串两端的空格
+    var str = " xuemingxing ";
+    console.log(str.trim());//原生方法
+    console.log($.trim(str));//jQuery方法
+</script>
+</html>
