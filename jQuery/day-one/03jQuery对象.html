@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button id="btn3">3</button>
+    <button>4</button>
+</body>
+<script>
+    $(function(){
+        //统计一共有多少个按钮
+        var $button = $('button');
+        console.log($button.length);
+
+        //取出第二个button的文本
+        console.log($button[1].innerHTML)
+
+        //遍历输出所有的DOM元素
+        $("button").each(function(index,item){
+            console.log(index,item.innerHTML,this)//这里的this可以得到标签元素
+        })
+
+        //输出内容为3的按钮为按钮中的第几个
+        console.log($("#btn3").index());
+        //index()方法得到指定id的按钮的索引值
+    })
+</script>
+</html>
