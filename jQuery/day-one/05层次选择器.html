@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    <ul>
+        <li>AAAAA</li>
+        <li class="box">CCCCCC</li>
+        <li title="hello">
+            <span>BBB</span>
+        </li>
+        <li title="hello">
+            <span>DDD</span>
+        </li>
+        <span>EEE</span>
+    </ul>
+</body>
+<script>
+    $(function(){
+        //1.选中ul下所有的span
+        $("ul span")//后代选择器
+        //2.选择ul下所有的span子元素
+        $("ul>span").css("background-color","red");//子代选择器
+        //3.选择class为box的下一个li
+        //prev+next：匹配所有紧接在prev元素之后的next元素
+        $(".box+li").css("background-color","red");
+        //4.选中ul下的class为box的元素后面的所有兄弟元素
+        $("ul .box~*")
+    })
+</script>
+</html>

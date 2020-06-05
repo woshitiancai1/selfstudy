@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    <div id="div1" class="box">class为box的div1</div>
+    <div id="div2" class="box">class为box的div2</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+    <br/>
+    <ul>
+        <li>AAAAA</li>
+        <li class="box">CCCCCC</li>
+        <li title="hello">
+            <span>BBB</span>
+        </li>
+        <li title="hello">
+            <span>DDD</span>
+        </li>
+        <span>EEE</span>
+    </ul>
+</body>
+<script>
+    //1.选择第一个div
+    $("div:first").css("background-color","red")
+    //2.选择最后一个class为box的元素
+    $(".box:last")
+    //3.选择所有class属性不为box的div
+    $("div:not(.box)")
+    //4.选择第二个和第三个li元素
+    //gt(index):匹配所有大于指定索引值的元素
+    //lt(index):匹配所有小于指定索引值的元素
+    // 多个选择器是依次执行的，第二个选择器从第一个选择器执行的结果开始过滤
+    $("li:gt(0):lt(2)")
+    //选择内容为为BBB的span
+    $("span:contains('BBB')")
+    //选择隐藏的li
+    $("li:hidden")
+    //选择有title属性的li元素
+    $("li[title]").css//属性选择器
+    //选择所有属性title属性为hello的li
+    $("li[title='hello']")//属性选择器
+</script>
+</html>
