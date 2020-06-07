@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    //1.$.each()用来遍历数组和对象
+    var obj = {
+        name:'xue',
+        age:20,
+        type:'tiancai'
+    }
+    $.each(obj,function(key,value){
+        console.log(key,value);
+    })
+    //2.$.trim()去掉字符串两边的空格
+    //3.$.type(obj);得到数据的类型
+    //4.$.isArray(obj);判断是否是数组
+    //5.$.isFunction();判断是否是函数
+    //6.$.parseJSON(json);解析json字符串转换为js对象/数组
+    var json = '{"name":"xuemingxing","age":20,"type":"tiancai"}';
+    console.log($.parseJSON(json));//将json字符串转化为JS对象
+    console.log($.parseJSON(json).name)
+    var json1 = '[{"name":"xuemingxing","age":20,"type":"tiancai"},{"name":"xuemingxing","age":20,"type":"tiancai"}]'
+    console.log($.parseJSON(json1));//将json数组转化为JS数组
+
+    //JSON.parse(json字符串);json字符串转化为JS对象
+    //JSON.stringify(jsObj/jsArr);js对象或者js数组转化为json字符串
+</script>
+</html>

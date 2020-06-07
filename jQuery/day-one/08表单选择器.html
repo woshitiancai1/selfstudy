@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    //1.选择不可用的文本输入框
+    $(":text:disabled").css()
+    //2.显示选择的爱好的个数
+    $(":checkbox:checked").length
+    //3.显示选择的城市的名称
+    $(":submit").click(function(){
+        $("select>option:selected").html();
+        $('select').val()//选择option的value属性值
+    })
+</script>
+</html>
