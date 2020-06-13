@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            list-style: none;
+        }
+    </style>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    <ul id="tab">
+        <li id="tab1">11</li>
+        <li id="tab2">22</li>
+        <li id="tab3">33</li>
+    </ul>
+    <div id="container">
+       <div id="content1">1</div>
+       <div id="content2" style="display: none;">2</div>
+       <div id="content3" style="display: none;">3</div> 
+    </div>
+</body>
+<script>
+    var $contents = $("#container>div")
+
+    var currentIndex = 0;//当前显示的内容的div索引值为0
+    //给三个li加监听
+    $('#tab>li').click(function(){
+        //隐藏当前已经显示的div内容
+        $contents[currentIndex].style.display = 'none';
+        //得到当前点击的li的索引值
+        var index = $(this).index();
+        $contents[index].style.display = 'block';
+        currentIndex = index;
+
+
+
+
+
+        //首先让每个div都不显示
+        // $contents.css("display",'none');
+        //得到当前点击的li在兄弟中的index值
+        // var index = $(this).index();
+        //让索引值对应的div显示
+        // $contents[index].style.display = 'block';
+    })
+</script>
+</html>
