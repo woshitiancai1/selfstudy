@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    //1.读取第一个div的title属性
+    $("div:first").attr('title');//attr()传入要得到的属性的名称
+
+    //2.给所有的div设置name属性
+    $("div").attr("name","name属性");//attr()设置属性传入两个参数，分别为属性名和属性值
+
+    //3.移除所有的div的title属性
+    $("div").removeAttr("title");//removeAttr()传入要移除的属性的名称
+
+    //4.给所有的div设置class属性
+    $("div").attr("class","class属性");//会覆盖掉div原本有的class属性的内容
+
+    //5.给所有的div添加class属性
+    $("div").addClass("class属性");//不会覆盖原有的class属性的内容
+
+    //6.移除所有class名为class属性的div
+    $("div").removeClass("class属性");
+
+    //7.得到最后一个li标签体的文本
+    $("li:last").html();
+
+    //8.设置第一个li标签体文本为
+    $("li:first").html('<h1>111111</h1>');
+
+    //9.得到输入框中的value值
+    $(":text").val();//选择type="text"的input框
+
+    //10.将输入框的值设置为tiancai
+    $(":text").val("tiancai");
+
+    var $checkboxs = $(":checkbox");//选择type="checkbox"的input框
+    //11.点击全选按钮实现全选
+    $("button:first").click(function(){
+        $checkboxs.prop("checked",true)
+        //attr：专门操作属性值为非布尔值的属性
+        //prop：专门操作属性值为布尔值的属性
+    })
+    //12.点击全选按钮实现全不选
+    $("button:last").click(function(){
+        $checkboxs.prop("checked",false)
+    })
+</script>
+</html>
