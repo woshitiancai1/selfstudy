@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    offset方法：获取匹配元素在当前视口的相对便宜
+    返回的对象包括两个整型属性：left和top
+
+    position方法获取子元素相对于父元素的位置
+    */
+    //1.打印div1相对于页面左上角的位置
+    $(".div1").offset().left;
+    $(".div1").offset().top;
+    //2.打印div1相对于父元素的左上角的位置
+    $(".div1").position().left;
+    $(".div1").position().top;
+    //3.设置div2相对于当前视口左上角的位置
+    $(".div2").offset({
+        left:20,
+        top:20
+    })
+</script>
+</html>

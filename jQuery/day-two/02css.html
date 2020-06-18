@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    //1.得到第一个p标签的颜色
+    $("p:first").css("color");
+    //2.设置所有的p标签的文本颜色为red
+    $("p").css("color","red");
+    //3.设置第二个p标签的字体颜色，背景，宽和高
+    $("p:eq(1)").css({//p:eq(1)找到所有p标签中下标为1的p标签
+        color:"red",
+        background:'blue',
+        width:300,
+        height:300
+    })
+</script>
+</html>
