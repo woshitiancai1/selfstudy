@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    1.函数是什么：函数也是一个对象
+    调用函数时，解析器不会检查实参的数量
+    实参可以是任意的数据类型
+    */
+    //构造函数创建一个函数对象
+    // var fun = new Function();
+    // console.log(fun);//function
+
+    //使用函数声明来创建函数
+    function add(形参){
+
+    }
+
+    //使用函数表达式来创建函数
+    var add2 = function(形参){
+
+    }
+
+    function sum(a,b,c){
+        return a+b+c;
+        //函数中，return后面的代码都不会执行
+    }
+    var result = sum(1,2,3);
+
+    var obj = {
+        name:'xue',
+        type:'tiancai',
+        age:22,
+        address:'huaguoshan'
+    }
+    function sayHello(o){//用o来接收所传入的对象参数
+        console.log(o.name)
+    }
+    sayHello(obj);//把一个对象作为函数参数传入
+    function a(sayHello){//把一个函数作为实参传入
+
+    }
+</script>
+</html>
