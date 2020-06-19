@@ -11,8 +11,16 @@
 </body>
 <script>
     //得到所有的ul下的所有的li
-    var $li = $("ul>li");
+    var $lis = $("ul>li");
     //1.ul标签下的第一个li标签
-    
+    $lis.first().css("background-color","red");
+    //2.ul标签下的第二个li标签
+    $lis.eq(1).css("background-color","red");
+    //3.ul标签下的li标签中title属性为hello的
+    $lis.filter("[title=hello]").css();
+    //4.ul标签下的li标签中title属性不为hello的
+    $lis.not("[title=hello]").css();
+    //5.ul标签下的li标签中有span标签的
+    $lis.has("span").css()
 </script>
 </html>
