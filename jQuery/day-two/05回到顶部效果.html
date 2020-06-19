@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    <div id="toTop">
+
+    </div>
+</body>
+<script>
+    $("#toTop").click(function(){
+        //瞬间回到顶部的效果
+        $("html,body").scrollTop(0);
+
+        //慢慢的平滑的回到顶部的效果
+        //滚动的总距离
+        var distance = $("html,body").scrollTop();
+        //滚动的总时间
+        var time = 500;
+        //间隔时间
+        var intervalTime = 50;
+        var itemDistance = distance / (time / intervalTime);
+        //使用循环定时器不断滚动
+        var intervalId = setInterval(function(){
+            $("html,body").scrollTop(distance - itemDistance);
+        },intervalTime)
+        //到达顶部，停止定时器
+    })
+</script>
+</html>
