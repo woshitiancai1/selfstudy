@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    //1.ul标签的第二个span字标签
+    var $ul = $("ul");
+    $ul.children("span:eq(1)").css();//children：子代选择器，用来选择子代
+
+    //2.ul标签的第二个span后代标签
+    $ul.find("span.eq(1)").css();//find后代选择器
+
+    //3.ul标签的父标签
+    $ul.parent().css();
+
+    //4.id为cc的li标签的前面的所有li标签
+    var $li = $("#cc");
+    $li.prevAll("li").css();//prev用来找前面的一个标签，prevAll用来找前面的所有标签
+
+    //5.id为cc的li标签的所有兄弟li标签
+    $li.siblings("li").css();
+</script>
+</html>
