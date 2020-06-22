@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.5.1.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    //1.向id为ul1的ul下添加一个span标签（在最后面）
+    var $ul1 = $("#ul1");
+    $ul1.append("<span>append方法添加</span>");
+    $("<span>appemdTo方法</span>").appendTo($ul1);
+
+    //2.向id为ul1的ul下添加一个span标签（在最前面）
+    $ul1.prepend("<span>prepend方法添加</span>");
+    $("<span>prependTo方法</span>").prependTo($ul1);
+
+    //3.在id为ul1下的ul下的li（title为hello）的前面添加span
+    $ul1.children('li[title=hello]').before("<span></span>");
+
+    //4.在id为ul1下的ul下的li（title为hello）的后面添加span
+    $ul1.children('li[title=hello]').after("<span></span>");
+
+    //5.将在id为ul2的ul下面的li（title为hello）全部替换为p
+    $("#ul2").children('li[title=hello]').replaceWith("<span>replaceWith替换的p</span>")
+
+    //6.移除id为ul2下面的所有的li
+    $("#ul2").empty();
+    $("#ul2>li").remove();
+</script>
+</html>
