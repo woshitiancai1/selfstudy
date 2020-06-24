@@ -10,6 +10,29 @@
     
 </body>
 <script>
-    
+    $(function(){
+        var $containers = $("#container");//container是外部的大盒子
+        //包裹着全部的内容
+        var $list = $("#list");//list为放图片的盒子
+        var $points = $("#pointsDiv>span")//pointsDiv为放着1,2,3,4,5图标的盒子
+        var $prev = $("#prev");
+        var $next = $("#next");
+        //1.点击按钮，平滑翻到下一页
+        $next.click(function(){
+            nextPage(true);
+        })
+        //点击按钮，平滑翻到上一页
+        $prev.click(function(){
+            nextPage(false);
+        })
+        /*
+        用面向对象（函数）的思想来实现每个功能
+        */
+        function nextPage(next){//next为true，为下一页
+            //next为false，为上一页
+            var currLeft = $list.position().left;
+            var offset = next? -600:600;
+        }
+    })
 </script>
 </html>
