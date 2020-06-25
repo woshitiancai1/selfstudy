@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //数组也是一个对象
+    //数组使用数字作为索引来操作数组元素的
+    //使用构造函数函数创建数组
+    var array = new Array();
+    console.log(typeof array);//Object
+    //如果读取不存在的index，会返回undefined
+    array.length = 5;//数组的length属性可以设置或者获取数组的长度
+
+    //向数组的最后一个位置添加元素：
+    //arr[arr.length] = 5;
+
+    //使用字面量创建数组：
+    var arr = [1,2,3,4,5];
+    
+    var arr1 = [10];//表示数组中只有一个元素，元素值为10
+    var arr2 = new Array(10);//表示创建的数组的长度为10
+
+    //数组中的元素可以是任意的数据类型
+    var obj = {
+        name:'xue'
+    }
+    var arr3 = [1,2,3,obj];
+    console.log(arr3[3].name)
+</script>
+</html>

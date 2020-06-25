@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //当我们在页面中打印一个对象时，事实上是输出的对象的toString方法的返回值
+    
+    /*
+    程序运行过程中会产生垃圾，所以需要一个垃圾回收的机制来回收程序运行过程中
+    产生的垃圾
+    当一个对象没有任何的变量或属性对它进行引用，我们将无法操作该对象，
+    此时这种对象就是一个垃圾。这种对象过多会占有大量的内存空间。
+    所以这种垃圾必须进行清理。
+    
+    在JS中有自动回收垃圾的机制，会自动将这些垃圾对象从内存中销毁。
+    我们需要做的只是把这些不再使用的对象设置为null即可
+    */
+    var obj = new Object();
+    //对对象进行各种操作
+    obj = null;
+    
+</script>
+</html>
