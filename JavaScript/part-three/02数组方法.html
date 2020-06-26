@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    slice:从某个数组中返回指定的元素
+    */
+    var arr = [11,21,31,41,51,61];
+    var arr1 = arr.slice(0,2);//传入两个参数，返回值是一个新的数组
+    //分别为截取开始的位置索引值和结束的位置索引值
+    //传入的索引值包括左边不包括右边
+    //如果第二个参数不写的话，表明右边的元素都截取
+    console.log(arr1);
+
+    /*
+    splice()：删除数组中指定的元素,并将被删除的元素作为数组返回
+    并向指定的位置添加元素，并添加到索引位置的前边
+    */
+    var arr2 = arr.splice(0,1,"tiancai");//传入两个参数，返回值是一个新的数组
+    //分别为截取开始的位置索引值和删除的元素的长度
+    console.log(arr);
+    console.log(arr2);
+
+    //concat可以连接两个或多个数组，并将新数组返回
+    //不会对原数组产生影响
+    var arr3 = [4,5,6,7,8];
+    var arr4 = arr.concat(arr3);
+    console.log(arr4);
+
+    //join方法：把数组转换为字符串，可以传入一个字符串作为参数，
+    //这个字符串将会作为数组中元素的连接符
+    //不会对原数组产生影响
+    var string1 = arr.join("");
+    console.log(string1);
+
+    //reverse()方法：颠倒数组中元素的顺序，反转数组
+    //对原数组有影响
+    var arr5 = arr.reverse();
+    console.log(arr);
+    console.log(arr5);
+
+    //sort：对数组中的元素进行排序
+    //对原数组有影响
+    arr.sort(function(a,b){
+        
+    })
+</script>
+</html>

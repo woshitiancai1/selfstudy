@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    Date对象来表示时间：
+    */
+    //直接使用构造函数创建对象，会封装为当前代码执行时间
+    var d = new Date();
+    console.log(d);
+
+    //创建一个指定的时间对象
+    //需要在构造函数中传递一个表示时间的字符串作为参数
+    //日期的格式为：月/日/年 时:分:秒
+    var d2 = new Date("12/05/2020 11:10:30");
+    console.log(d2);
+
+
+    //getDate()：从Date对象中返回一个月中具体的几号(1-31)
+    var date1 = d2.getDate();
+    //getDay():返回对象是一周中的某一天（0-6）：0代表周日
+    var day = d2.getDay();
+    //getMonth()：获取具体的月份（0-11）
+    var month = d2.getMonth()+1;
+    //getFullYear()：获取一个四位数的年份
+    var year = d2.getFullYear();
+    //getHours(),getMinutes(),getSeconds()分别用来获取 小时、分钟、秒
+    //getTime()：返回1970.1.1至今的毫秒数
+    var getTime = d2.getTime();
+    //
+</script>
+</html>

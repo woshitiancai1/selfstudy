@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    在调用函数时，浏览器每次都会传递两个隐含的参数，
+    1.函数上下文对象this
+    2.封装实参的对象arguments
+
+    arguments是类数组对象，可以通过索引操作数据，也可以获取数据
+    调用函数的时候所传递的实参都会封装到arguments中，
+    arguments.length就是所传递的实参的数量
+    */
+    function fun(){
+        console.log(arguments[1]);//如果不定义形参，就用这种方法来获取参数
+    }
+    fun("hello",true);
+</script>
+ 
+</html>
